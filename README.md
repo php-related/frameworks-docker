@@ -1,5 +1,3 @@
-[TOC]
-
 # PHP主流框架历史版本归档与标准化部署集成
 
 ## 项目简介
@@ -37,26 +35,43 @@
 
 ## 目录结构说明
 
+```text
 <framework>/
   └── <version>/
-      ├── src/                   # 官方原始源码
-      ├── docker/                # Dockerfile、docker-compose.yml、Nginx 配置等
-      └── README.md              # 当前版本的部署与适配说明
+      ├── ../                              # 官方原始源码
+      ├── nginx.conf                       # 原生环境部署 Nginx 配置
+      └── docker/                          # docker相关配置
+            ├──Dockerfile                  # Dockerfile 打包模式Dockerfile
+            ├──Dockerfile.volume           # Dockerfile 挂载模式Dockerfile
+            ├──docker-compose.yml          # 打包模式基础配置
+            ├──docker-compose.override.yml # 挂载模式配置，自动被 docker-compose 读取并覆盖
+            └──README.md                   # 当前版本的部署与适配说明
+```
 
 ## 快速开始
 
 ### 1. Docker 一键部署（推荐）
 
-以 Laravel 8.x 为例：
+先决条件
+
+- 安装 Docker（版本建议 20.10+）
+- 安装 Docker Compose（版本建议 1.28+ 或使用 Docker Desktop 自带版本）
+
+以 Laravel 12.x 为例：
 
 ```shell
-cd laravel/8.x/docker
-docker-compose up -d
+cd Laravel/laravel-12.0/docker
+
+1. 开发调试（带挂载）
+docker-compose -f docker-compose.yml -f docker-compose.volume.yml up -d --build
+
+2. 生产运行（整体打包）（推荐）
+docker-compose -f docker-compose.yml up -d --build
 ```
 
 ### 2. 原生环境部署
 
-- 进入所需框架及版本目录，获取 src/ 下官方源码。
+- 进入所需框架及版本目录，获取 <version>/ 下官方源码。
 - 参考 README.md 配置本地 PHP-FPM 与 Nginx 服务，实现原生部署。
 - 项目保证与官方文档保持一致，可直接对比官方说明操作。
 
