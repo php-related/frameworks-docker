@@ -140,7 +140,7 @@ docker-compose -f docker-compose.yaml down
 ```
 重启服务
 ```bash
-docker-compose -f docker-compose.yaml restart <容器名称>
+docker-compose -f docker-compose.yaml restart laravel12
 ```
 清理孤儿容器（未被 Compose 管理的剩余容器）
 ```bash
