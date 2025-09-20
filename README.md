@@ -50,6 +50,8 @@
 
 ## 快速开始
 
+colne项目到本地，选择自己需要的框架，拷贝整个版本文件夹（全部文件），即为框架源码，如：`Laravel/laravel-12.0`。
+
 ### 1. Docker 一键部署（推荐）
 
 先决条件
@@ -73,9 +75,8 @@ docker-compose -f docker-compose.yaml -p laravel12 up -d --build
 
 ### 2. 原生环境部署
 
-具体请参考对应框架下的docker目录中的README.md，如：Laravel/laravel-12.x/docker/README.md
+具体请参考对应框架下的docker目录中的README.md，如：`Laravel/laravel-12.x/docker/README.md`
 
-- 进入所需框架及版本目录，获取 <version>/ 下官方源码。
 - 参考 README.md 配置本地 PHP-FPM 与 Nginx 服务，实现原生部署。
 - 项目保证与官方文档保持一致，可直接对比官方说明操作。
 
@@ -124,6 +125,7 @@ docker stop laravel12-run
 docker rm laravel12-run
 ```
 ## 二、常用 Docker Compose 命令（多容器编排）
+
 启动并构建服务
 ```bash
 docker-compose -f docker-compose.yaml up -d --build
@@ -134,7 +136,7 @@ docker-compose -f docker-compose.yaml down
 ```
 重启服务
 ```bash
-docker-compose -f docker-compose.yaml restart
+docker-compose -f docker-compose.yaml restart <容器名称>
 ```
 清理孤儿容器（未被 Compose 管理的剩余容器）
 ```bash
@@ -194,12 +196,3 @@ docker-compose -f docker-compose.yaml up -d --remove-orphans
 - 欢迎 star、fork 本仓库，助力 PHP 社区生态建设！
 
 本项目所有框架源码均源自官方渠道，未作任何修改，相关版权归原作者所有。仅为便于开发、学习及快速环境搭建而整理提供。
-
-## 说明
-
-- 目录结构已具备可扩展性，便于后续收录更多框架及版本。
-- README语气正式、术语清晰，适用于企业或大型开源项目场景。
-- 使用“官方原始源码、标准化部署、统一结构”等关键词突出专业性。
-- 快速开始部分直观给出操作参考，降低上手门槛。
-
-如需更细致的各版本下 README 模板或 Docker 部署实例说明，也可随时说明！
