@@ -63,17 +63,119 @@
 cd Laravel/laravel-12.0/docker
 
 1. 开发调试（带挂载）
-docker-compose -f docker-compose.yml -f docker-compose.volume.yml up -d --build
+docker-compose -f docker-compose.volume.yaml -p laravel12-volume up -d --build
 
 2. 生产运行（整体打包）（推荐）
-docker-compose -f docker-compose.yml up -d --build
+docker-compose -f docker-compose.yaml -p laravel12 up -d --build
 ```
 
+---
+
 ### 2. 原生环境部署
+
+具体请参考对应框架下的docker目录中的README.md，如：Laravel/laravel-12.x/docker/README.md
 
 - 进入所需框架及版本目录，获取 <version>/ 下官方源码。
 - 参考 README.md 配置本地 PHP-FPM 与 Nginx 服务，实现原生部署。
 - 项目保证与官方文档保持一致，可直接对比官方说明操作。
+
+---
+
+# Docker常用命令
+
+在本项目中，涉及到两类主要命令：
+
+- **`docker` 命令**：用于单个容器的构建、启动、管理
+- **`docker-compose` 命令**：用于多容器编排的启动、停止及管理
+
+## 一、常用 Docker 命令（单容器操作）
+
+### 构建镜像
+
+```bash
+docker build -f Dockerfile -t laravel12:latest .
+```
+启动容器
+```bash
+docker run -d --name laravel12-run -p 8082:80 laravel12:latest
+```
+查看所有运行中的容器
+```bash
+docker ps
+```
+查看所有容器（包含已停止）
+```bash
+docker ps -a
+```
+查看容器日志
+```bash
+docker logs -f laravel12-run
+```
+进入容器终端
+```bash
+docker exec -it laravel12-run sh
+```
+停止容器
+```bash
+docker stop laravel12-run
+```
+删除容器
+```bash
+docker rm laravel12-run
+```
+## 二、常用 Docker Compose 命令（多容器编排）
+启动并构建服务
+```bash
+docker-compose -f docker-compose.yaml up -d --build
+```
+停止并移除所有服务容器
+```bash
+docker-compose -f docker-compose.yaml down
+```
+重启服务
+```bash
+docker-compose -f docker-compose.yaml restart
+```
+清理孤儿容器（未被 Compose 管理的剩余容器）
+```bash
+docker-compose -f docker-compose.yaml up -d --remove-orphans
+```
+## 三、使用建议
+
+单容器场景（如整体打包镜像直接运行），推荐使用 docker 命令。
+多容器场景（如数据库、缓存和应用容器一起启动），使用 docker-compose 管理更方便。
+在文档或脚本中明确区分两者，避免混淆。
+
+## 四、示例对比
+
+| 操作	| 单容器命令示例	| 多容器命令示例| 
+|------------------------------|--------------------|--------------------------|
+| 构建镜像	| docker build -f Dockerfile -t laravel12 .	| docker-compose -f docker-compose.yaml build| 
+| 启动服务	| docker run -d -p 8082:80 laravel12	| docker-compose -f docker-compose.yaml up -d| 
+| 停止服务	| docker stop laravel12-run	| docker-compose -f docker-compose.yaml down| 
+| 查看日志	| docker logs -f laravel12-run	| docker-compose -f docker-compose.yaml logs -f| 
+| 进入终端	| docker exec -it laravel12-run sh	| docker exec -it <服务名>  sh| 
+
+请根据实际部署方式选择对应的命令使用。
+
+## 总结
+
+| 方式                         | 适用场景           | 特点                     |
+|------------------------------|--------------------|--------------------------|
+|传统 nginx+php-fpm	|传统服务器或自定义环境|灵活可控，需环境手动配置|
+| docker-compose.yaml           | 生产/标准开发      | 镜像包含代码，启动即用   |
+| docker-compose.volume.yaml    | 本地开发调试       | 宿主机代码同步，无需重建 |
+| docker run（整体打包）        | 部署/测试/演示      | 一条命令，快速启动       |
+
+---
+
+### 说明：
+
+- 这样结构清晰，方便用户根据需求选择部署方式
+- 传统部署放在第一个，满足你“源码+传统部署”的初衷
+- Docker 部署分两层，挂载卷和整体打包，且整体打包又支持 docker-compose 和 docker run 两种启动
+
+---
 
 # 贡献指南
 
