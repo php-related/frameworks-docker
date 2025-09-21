@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  laravel-app:
+    container_name: laravel10
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: laravel10
+    ports:
+      - "8075:80"
+    environment:
+      - APP_ENV=production
+    restart: unless-stopped
