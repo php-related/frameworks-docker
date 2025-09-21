@@ -13,6 +13,9 @@
 nginx.conf
 node_modules
 
+supervisord
+supervisord.log
+supervisord.pid
 docker/Dockerfile
 docker/Dockerfile.volume
 docker/docker-compose.volume.yaml

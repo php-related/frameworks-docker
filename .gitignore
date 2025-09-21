@@ -21,6 +21,30 @@ TEST.md
 # 其它配置文件
 .htaccess
 
+supervisord
+supervisord.log
+supervisord.pid
+
+############################################################################
+
+# Laravel9.x
+################################Laravel9.x#################################
+# 运行时生成的缓存、日志
+Laravel/laravel-9.x/storage/logs/*
+# composer 依赖
+Laravel/laravel-9.x/vendor/
+# 测试文件
+Laravel/laravel-9.x/tests/
+############################################################################
+
+# Laravel10.x
+################################Laravel10.x#################################
+# 运行时生成的缓存、日志
+Laravel/laravel-10.x/storage/logs/*
+# composer 依赖
+Laravel/laravel-10.x/vendor/
+# 测试文件
+Laravel/laravel-10.x/tests/
 ############################################################################
 
 # Laravel11.x
