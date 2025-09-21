@@ -1,6 +1,6 @@
-# Laravel 12 Framework 项目使用说明
+# Laravel 11 Framework 项目使用说明
 
-本项目基于 **PHP Laravel 12** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
+本项目基于 **PHP Laravel 11** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
 
 - 传统部署（nginx + php-fpm）
 - Docker 部署（支持开发挂载卷和整体打包两种模式）
@@ -9,7 +9,7 @@
 
 ```text
 Laravel/
-  └── laravel-12.x/
+  └── laravel-11.x/
       ├── ../                              # 官方原始源码
       ├── nginx.conf                       # 原生环境部署 Nginx 配置
       └── docker/                          # docker相关配置
@@ -30,20 +30,20 @@ Laravel/
 - PHP 8.2+，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
-- 项目源码放置目录，例如 `/var/www/laravel12`
+- 项目源码放置目录，例如 `/var/www/laravel11`
 
 ### 2. nginx 配置
 
-项目提供 `nginx.conf` 示例配置(请参考laravel-12.x根目录下nginx.conf)
+项目提供 `nginx.conf` 示例配置(请参考laravel-11.x根目录下nginx.conf)
 
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
 
 ```bash
-sudo chown -R www-data:www-data /var/www/laravel12
-sudo find /var/www/laravel12 -type f -exec chmod 644 {} \;
-sudo find /var/www/laravel12 -type d -exec chmod 755 {} \;
+sudo chown -R www-data:www-data /var/www/laravel11
+sudo find /var/www/laravel11 -type f -exec chmod 644 {} \;
+sudo find /var/www/laravel11 -type d -exec chmod 755 {} \;
 ```
 
 ### 4. 重启服务并访问
@@ -83,14 +83,14 @@ Docker 部署支持两种模式：
 #### 启动命令
 
 ```bash
-cd Laravel/laravel-12.x/docker
-docker-compose -f docker-compose.volume.yaml -p laravel12-volume up -d --build
+cd Laravel/laravel-11.x/docker
+docker-compose -f docker-compose.volume.yaml -p laravel11-volume up -d --build
 ```
 
 ### 访问项目
 ```
-# 假设端口映射为 `8080:80`，具体请查看`docker-compose.volume.yaml`：
-http://localhost:8080
+# 假设端口映射为 `8077:80`，具体请查看`docker-compose.volume.yaml`：
+http://localhost:8077
 ```
 
 ### 2. 整体打包镜像模式
@@ -102,14 +102,14 @@ http://localhost:8080
 启动命令：
 
 ```bash
-cd Laravel/laravel-12.x/docker
-docker-compose -f docker-compose.yaml -p laravel12 up -d --build
+cd Laravel/laravel-11.x/docker
+docker-compose -f docker-compose.yaml -p laravel11 up -d --build
 ```
 #### 访问项目
 
 ```
-# 假设端口映射为 `8081:80`，具体请查看`docker-compose.yaml`：
-http://localhost:8081
+# 假设端口映射为 `8078:80`，具体请查看`docker-compose.yaml`：
+http://localhost:8078
 ```
 
 #### 2.2 直接使用 docker run 启动
@@ -117,28 +117,28 @@ http://localhost:8081
 构建镜像：
 
 ```bash
-cd Laravel/laravel-12.x
-docker build -f docker/Dockerfile -t laravel12:run .
+cd Laravel/laravel-11.x
+docker build -f docker/Dockerfile -t laravel11:run .
 ```
 
 启动容器：
 
 ```bash
-docker run -d --name laravel12-run -p 8083:80 laravel12:run
+docker run -d --name laravel11-run -p 8079:80 laravel11:run
 ```
 
 #### 访问项目
 
 ```
-# 假设端口映射为 `8083:80`，这里是根据docker run启动时指定的端口：
-http://localhost:8083
+# 假设端口映射为 `8079:80`，这里是根据docker run启动时指定的端口：
+http://localhost:8079
 ```
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md
 
 ## 注意事项
 
-- **端口映射**：确保所选端口（如8080/8081/8082等）未被其他服务占用。
+- **端口映射**：确保所选端口（如8077/8078/8079等）未被其他服务占用。
 - **项目名冲突**：建议使用 `-p` 指定项目名，避免多个 compose 项目资源冲突。
 - **文件挂载性能**：开发模式挂载卷有助于实时同步，但在 Windows/macOS 下性能有限，Linux/WSL2更佳。
 - **环境变量配置**：如需自定义数据库、缓存等参数，请修改 `.env` 文件或 docker-compose 配置。
