@@ -1,6 +1,6 @@
-# Laravel 8 Framework 项目使用说明
+# Laravel 7 Framework 项目使用说明
 
-本项目基于 **PHP Laravel 8** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
+本项目基于 **PHP Laravel 7** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
 
 - 传统部署（nginx + php-fpm）
 - Docker 部署（支持开发挂载卷和整体打包两种模式）
@@ -9,7 +9,7 @@
 
 ```text
 Laravel/
-  └── laravel-8.x/
+  └── laravel-7.x/
       ├── ../                              # 官方原始源码
       ├── nginx.conf                       # 原生环境部署 Nginx 配置
       └── docker/                          # docker相关配置
@@ -31,7 +31,7 @@ Laravel/
 - PHP 8.2+，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
-- 项目源码放置目录，例如 `/var/www/laravel8`
+- 项目源码放置目录，例如 `/var/www/laravel7`
 
 ### 2. nginx 配置
 
@@ -42,9 +42,9 @@ Laravel/
 确保 web 用户有读写权限：
 
 ```bash
-sudo chown -R www-data:www-data /var/www/laravel8
-sudo find /var/www/laravel8 -type f -exec chmod 644 {} \;
-sudo find /var/www/laravel8 -type d -exec chmod 755 {} \;
+sudo chown -R www-data:www-data /var/www/laravel7
+sudo find /var/www/laravel7 -type f -exec chmod 644 {} \;
+sudo find /var/www/laravel7 -type d -exec chmod 755 {} \;
 ```
 
 ### 4. 重启服务并访问
@@ -86,15 +86,15 @@ Docker 部署支持两种模式：
 #### 启动命令
 
 ```bash
-cd Laravel/laravel-8.x/docker
-docker-compose -f docker-compose.volume.yaml -p laravel8-volume up -d --build
+cd Laravel/laravel-7.x/docker
+docker-compose -f docker-compose.volume.yaml -p laravel7-volume up -d --build
 ```
 
 ### 访问项目
 
 ```
-# 假设端口映射为 `8068:80`，具体请查看`docker-compose.volume.yaml`：
-http://localhost:8068
+# 假设端口映射为 `8065:80`，具体请查看`docker-compose.volume.yaml`：
+http://localhost:8065
 ```
 
 ### 2. 整体打包镜像模式
@@ -106,15 +106,15 @@ http://localhost:8068
 启动命令：
 
 ```bash
-cd Laravel/laravel-8.x/docker
-docker-compose -f docker-compose.yaml -p laravel8 up -d --build
+cd Laravel/laravel-7.x/docker
+docker-compose -f docker-compose.yaml -p laravel7 up -d --build
 ```
 
 #### 访问项目
 
 ```
-# 假设端口映射为 `8069:80`，具体请查看`docker-compose.yaml`：
-http://localhost:8069
+# 假设端口映射为 `8066:80`，具体请查看`docker-compose.yaml`：
+http://localhost:8066
 ```
 
 #### 2.2 直接使用 docker run 启动
@@ -122,21 +122,21 @@ http://localhost:8069
 构建镜像：
 
 ```bash
-cd Laravel/laravel-8.x
-docker build -f docker/Dockerfile -t laravel8:run .
+cd Laravel/laravel-7.x
+docker build -f docker/Dockerfile -t laravel7:run .
 ```
 
 启动容器：
 
 ```bash
-docker run -d --name laravel8-run -p 8070:80 laravel8:run
+docker run -d --name laravel7-run -p 8067:80 laravel7:run
 ```
 
 #### 访问项目
 
 ```
-# 假设端口映射为 `8070:80`，这里是根据docker run启动时指定的端口：
-http://localhost:8070
+# 假设端口映射为 `8067:80`，这里是根据docker run启动时指定的端口：
+http://localhost:8067
 ```
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md
