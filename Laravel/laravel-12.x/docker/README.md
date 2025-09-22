@@ -127,6 +127,14 @@ docker build -f docker/Dockerfile -t laravel12:run .
 docker run -d --name laravel12-run -p 8083:80 laravel12:run
 ```
 
+或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`laravel12:latest`），具体请查看`docker-compose.yaml`
+
+启动容器（前提是存在laravel12:latest镜像）：
+
+```bash
+docker run -d --name laravel12-latest -p 8083:80 laravel12:latest
+```
+
 #### 访问项目
 
 ```

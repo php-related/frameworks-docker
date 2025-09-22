@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  webman:
+    container_name: webman2_1
+    image: webman2_1
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8057:8056"
+    restart: always
+    tty: true

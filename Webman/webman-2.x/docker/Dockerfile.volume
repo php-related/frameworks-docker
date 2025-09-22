@@ -1,0 +1,12 @@
+# 阶段1：构建依赖
+FROM composer:2 AS builder
+WORKDIR /app
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-interaction --optimize-autoloader && composer clear-cache  
+
+# 阶段2：生产镜像，只复制依赖
+FROM registry.cn-hangzhou.aliyuncs.com/panxu/php:8.2-fpm-alpine
+WORKDIR /app
+COPY --from=builder /app/vendor ./vendor
+EXPOSE 8056
+CMD ["php", "start.php", "start"]

@@ -132,6 +132,14 @@ docker build -f docker/Dockerfile -t laravel10:run .
 docker run -d --name laravel10-run -p 8076:80 laravel10:run
 ```
 
+或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`laravel10:latest`），具体请查看`docker-compose.yaml`
+
+启动容器（前提是存在laravel10:latest镜像）：
+
+```bash
+docker run -d --name laravel10-latest -p 8076:80 laravel10:latest
+```
+
 #### 访问项目
 
 ```

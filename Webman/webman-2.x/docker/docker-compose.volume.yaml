@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  webman:
+    container_name: webman2_1-volume
+    image: webman2_1:volume
+    working_dir: /app
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.volume
+    ports:
+      - "8056:8056"
+    volumes:
+      - ../:/app:delegated   # 这里改为项目根目录
+    command: ["php", "start.php", "start"]
+    restart: always
+    tty: true
+    environment:
+      - WEBMAN_ENV=dev

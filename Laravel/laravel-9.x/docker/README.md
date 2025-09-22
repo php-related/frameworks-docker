@@ -127,6 +127,14 @@ docker build -f docker/Dockerfile -t laravel9:run .
 docker run -d --name laravel9-run -p 8073:80 laravel9:run
 ```
 
+或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`laravel9:latest`），具体请查看`docker-compose.yaml`
+
+启动容器（前提是存在laravel8:latest镜像）：
+
+```bash
+docker run -d --name laravel9-latest -p 8073:80 laravel9:latest
+```
+
 #### 访问项目
 
 ```

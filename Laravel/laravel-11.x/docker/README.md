@@ -127,6 +127,14 @@ docker build -f docker/Dockerfile -t laravel11:run .
 docker run -d --name laravel11-run -p 8079:80 laravel11:run
 ```
 
+或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`laravel11:latest`），具体请查看`docker-compose.yaml`
+
+启动容器（前提是存在laravel11:latest镜像）：
+
+```bash
+docker run -d --name laravel11-latest -p 8079:80 laravel11:latest
+```
+
 #### 访问项目
 
 ```

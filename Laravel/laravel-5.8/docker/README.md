@@ -132,6 +132,14 @@ docker build -f docker/Dockerfile -t laravel5_8:run .
 docker run -d --name laravel5_8-run -p 8061:80 laravel5_8:run
 ```
 
+或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`laravel5_8:latest`），具体请查看`docker-compose.yaml`
+
+启动容器（前提是存在laravel5_8:latest镜像）：
+
+```bash
+docker run -d --name laravel5_8-latest -p 8061:80 laravel5_8:latest
+```
+
 #### 访问项目
 
 ```

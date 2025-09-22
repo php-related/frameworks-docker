@@ -132,6 +132,14 @@ docker build -f docker/Dockerfile -t laravel7:run .
 docker run -d --name laravel7-run -p 8067:80 laravel7:run
 ```
 
+或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`laravel7:latest`），具体请查看`docker-compose.yaml`
+
+启动容器（前提是存在laravel7:latest镜像）：
+
+```bash
+docker run -d --name laravel7-latest -p 8067:80 laravel7:latest
+```
+
 #### 访问项目
 
 ```

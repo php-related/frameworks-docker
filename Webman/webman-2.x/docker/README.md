@@ -1,6 +1,6 @@
-# Laravel 6 Framework 项目使用说明
+# Webman 2.x Framework 项目使用说明
 
-本项目基于 **PHP Laravel 6** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
+本项目基于 **PHP Webman 2.x** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
 
 - 传统部署（nginx + php-fpm）
 - Docker 部署（支持开发挂载卷和整体打包两种模式）
@@ -8,8 +8,8 @@
 ## 目录结构
 
 ```text
-Laravel/
-  └── laravel-6.x/
+Webman/
+  └── Webman-2.x/
       ├── ../                              # 官方原始源码
       ├── nginx.conf                       # 原生环境部署 Nginx 配置
       └── docker/                          # docker相关配置
@@ -19,7 +19,6 @@ Laravel/
             ├──docker-compose.override.yml # 挂载模式配置，自动被 docker-compose 读取并覆盖
             └──README.md                   # 当前版本的部署与适配说明
 ```
-
 ---
 
 ## 一、源码与传统部署（nginx + php-fpm）
@@ -28,23 +27,23 @@ Laravel/
 
 ### 1. 环境准备
 
-- PHP<=7.3+，包含 php-fpm 服务
+- PHP 8.2+，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
-- 项目源码放置目录，例如 `/var/www/laravel6`
+- 项目源码放置目录，例如 `/var/www/Webman2`
 
 ### 2. nginx 配置
 
-项目提供 `nginx.conf` 示例配置(请参考laravel-11.x根目录下nginx.conf)
+项目提供 `nginx.conf` 示例配置(请参考Webman-12.x根目录下nginx.conf)
 
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
 
 ```bash
-sudo chown -R www-data:www-data /var/www/laravel6
-sudo find /var/www/laravel6 -type f -exec chmod 644 {} \;
-sudo find /var/www/laravel6 -type d -exec chmod 755 {} \;
+sudo chown -R www-data:www-data /var/www/Webman2_1
+sudo find /var/www/Webman2_1 -type f -exec chmod 644 {} \;
+sudo find /var/www/Webman2_1 -type d -exec chmod 755 {} \;
 ```
 
 ### 4. 重启服务并访问
@@ -52,16 +51,14 @@ sudo find /var/www/laravel6 -type d -exec chmod 755 {} \;
 重启 php-fpm 与 nginx：
 
 ```bash
-sudo systemctl restart php7.3-fpm
+sudo systemctl restart php8.2-fpm
 sudo systemctl restart nginx
 ```
 
-### 访问项目
-
+### 访问项目：
 ```
 http://你的服务器IP或域名/
 ```
-
 ---
 
 ## 二、Docker 部署
@@ -86,15 +83,14 @@ Docker 部署支持两种模式：
 #### 启动命令
 
 ```bash
-cd Laravel/laravel-6.x/docker
-docker-compose -f docker-compose.volume.yaml -p laravel6-volume up -d --build
+cd Webman/Webman-2.x
+docker-compose -f docker-compose.volume.yaml -p webman2_1-volume up -d --build
 ```
 
 ### 访问项目
-
 ```
-# 假设端口映射为 `8062:80`，具体请查看`docker-compose.volume.yaml`：
-http://localhost:8062
+# 假设端口映射为 `8056:8056`，具体请查看`docker-compose.volume.yaml`：
+http://localhost:8056
 ```
 
 ### 2. 整体打包镜像模式
@@ -106,52 +102,50 @@ http://localhost:8062
 启动命令：
 
 ```bash
-cd Laravel/laravel-6.x/docker
-docker-compose -f docker-compose.yaml -p laravel6 up -d --build
+cd Webman/Webman-2.x/docker
+docker-compose -f docker-compose.yaml -p webman2_1 up -d --build
 ```
-
 #### 访问项目
 
 ```
-# 假设端口映射为 `8063:80`，具体请查看`docker-compose.yaml`：
-http://localhost:8063
+# 假设端口映射为 `8057:8056`，具体请查看`docker-compose.yaml`：
+http://localhost:8057
 ```
 
 #### 2.2 直接使用 docker run 启动
 
 构建镜像：
-
 ```bash
-cd Laravel/laravel-6.x
-docker build -f docker/Dockerfile -t laravel6:run .
+cd Webman/Webman-2.x
+docker build -f docker/Dockerfile -t webman2_1:run .
 ```
 
 启动容器：
 
 ```bash
-docker run -d --name laravel6-run -p 8064:80 laravel6:run
+docker run -d --name webman2_1-run -p 8058:8056 webman2_1:run
 ```
 
-或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`laravel6:latest`），具体请查看`docker-compose.yaml`
+或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`webman2_1:latest`），具体请查看`docker-compose.yaml`
 
-启动容器（前提是存在laravel6:latest镜像）：
+启动容器（前提是存在webman2_1:latest镜像）：
 
 ```bash
-docker run -d --name laravel6-latest -p 8064:80 laravel6:latest
+docker run -d --name webman2_1-latest -p 8058:8056 webman2_1:latest
 ```
 
 #### 访问项目
 
 ```
-# 假设端口映射为 `8064:80`，这里是根据docker run启动时指定的端口：
-http://localhost:8064
+# 假设端口映射为 `8058:8056`，这里是根据docker run启动时指定的端口：
+http://localhost:8058
 ```
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md
 
 ## 注意事项
 
-- **端口映射**：确保所选端口（如8074/8078/8079等）未被其他服务占用。
+- **端口映射**：确保所选端口（如8080/8081/8082等）未被其他服务占用。
 - **项目名冲突**：建议使用 `-p` 指定项目名，避免多个 compose 项目资源冲突。
 - **文件挂载性能**：开发模式挂载卷有助于实时同步，但在 Windows/macOS 下性能有限，Linux/WSL2更佳。
 - **环境变量配置**：如需自定义数据库、缓存等参数，请修改 `.env` 文件或 docker-compose 配置。
