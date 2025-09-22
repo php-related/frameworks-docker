@@ -16,6 +16,12 @@ services:
       - APP_ENV=local
     command: >
       /bin/sh -c "
-      cd /app &&
+      if [ ! -d /app/vendor ]; then
+        composer install --no-dev --optimize-autoloader;
+      fi;
+      if [ ! -f /app/.env ]; then
+        cp /app/.env.example /app/.env;
+        php /app/artisan key:generate;
+      fi;
       /usr/bin/supervisord -c /etc/supervisord.conf
       "

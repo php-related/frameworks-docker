@@ -14,8 +14,22 @@ services:
       - ./supervisord.conf:/etc/supervisord.conf:ro
     environment:
       - APP_ENV=local
+      - APP_ENV=local
+    # command: >
+    #   /bin/sh -c "
+    #   cd /app &&
+    #   cp .env.example .env &&
+    #   php artisan key:generate &&
+    #   /usr/bin/supervisord -c /etc/supervisord.conf
+    #   "
     command: >
       /bin/sh -c "
-      cd /app &&
+      if [ ! -d /app/vendor ]; then
+        composer install --no-dev --optimize-autoloader;
+      fi;
+      if [ ! -f /app/.env ]; then
+        cp /app/.env.example /app/.env;
+        php /app/artisan key:generate;
+      fi;
       /usr/bin/supervisord -c /etc/supervisord.conf
       "
