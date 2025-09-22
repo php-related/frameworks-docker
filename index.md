@@ -1,9 +1,9 @@
 # PHP 主流框架历史版本归档与标准化部署集成
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE) 
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/yourproject.svg)](https://github.com/yourusername/yourproject/issues) 
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/yourproject.svg)](https://github.com/yourusername/yourproject/network/members) 
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/yourproject.svg)](https://github.com/yourusername/yourproject/stargazers) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/yourusername/yourproject.svg)](https://github.com/yourusername/yourproject/issues)
+[![GitHub forks](https://img.shields.io/github/forks/yourusername/yourproject.svg)](https://github.com/yourusername/yourproject/network/members)
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/yourproject.svg)](https://github.com/yourusername/yourproject/stargazers)
 [![Docker Pulls](https://img.shields.io/docker/pulls/yourdockerrepo/yourimage.svg)](https://hub.docker.com/r/yourdockerrepo/yourimage)
 
 ---
@@ -75,17 +75,21 @@
 ```
 
 ## ⚡ 快速开始
+
 1. 克隆仓库
+
 ```bash
-git clone https://github.com/yourusername/yourproject.git
-cd yourproject
+git clone https://github.com/php-related/frameworks-docker.git
+cd frameworks-docker
 ```
+
 2. 选择框架与版本
 复制所需框架版本完整文件夹（包含源码和相关配置），例如：
 
 ```bash
 cp -r Laravel/laravel-12.x /your/workspace/
 ```
+
 注意
 
 本项目一般以大版本（如 12.x）为标识，通常对应最新稳定小版本。仅当小版本间存在显著差异时，才单独维护。
@@ -94,6 +98,7 @@ cp -r Laravel/laravel-12.x /your/workspace/
 如果使用时发现有重要小版本未收录，欢迎通过 Issues 联系我，并提供具体版本信息，我会尽快补充。
 
 ## 🐳 Docker 一键部署（推荐）
+
 前置要求：
 
 Docker 20.10+
@@ -103,11 +108,15 @@ Docker Compose 1.28+（或 Docker Desktop 内置版本）
 ```bash
 cd Laravel/laravel-12.x/docker
 ```
+
 # 开发调试（宿主机挂载代码）
+
 ```bash
 docker-compose -f docker-compose.volume.yaml -p laravel12-volume up -d --build
 ```
+
 # 生产运行（整体打包）
+
 ```bash
 docker-compose -f docker-compose.yaml -p laravel12 up -d --build
 ```
@@ -115,6 +124,7 @@ docker-compose -f docker-compose.yaml -p laravel12 up -d --build
 ## 🖥️ 原生环境部署
 
 详细步骤请参考对应目录中的 docker/README.md，示例：`Laravel/laravel-12.x/docker/README.md`
+
 - 根据说明配置 PHP-FPM 与 Nginx
 - 建议结合官方文档确保部署流程正确
 - 保持与官方文档一致，便于对比操作
@@ -159,7 +169,7 @@ docker-compose -f docker-compose.yaml -p laravel12 up -d --build
 ## 📬 联系方式
 
 - GitHub Issues（首选）：提交问题
-- 邮箱：panxu71@163.com
+- 邮箱：<panxu71@163.com>
 - 欢迎 Star 和 Fork，支持 PHP 开发社区！
 
 > 免责声明

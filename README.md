@@ -50,6 +50,20 @@
 
 ## 快速开始
 
+1. 克隆仓库
+
+```bash
+git clone https://github.com/php-related/frameworks-docker.git
+cd frameworks-docker
+```
+
+2. 选择框架与版本
+复制所需框架版本完整文件夹（包含源码和相关配置），例如：
+
+```bash
+cp -r Laravel/laravel-12.x /your/workspace/
+```
+
 从远程仓库克隆项目到本地后，选择所需的框架版本，复制对应的完整版本文件夹（包含所有文件），该文件夹即为框架的完整源码。例如：Laravel/laravel-12.x。
 
 需要特别说明的是，并非每个小版本都会单独收录，如 Laravel 12 可能包含 12.1.0、12.2.0、12.3.0 等多个小版本，本项目统一以大版本（如 12.x）为标识，通常对应该大版本下的最新稳定小版本（即创建项目时的最新版本）。仅当两个小版本间存在显著架构或功能差异时，才会区分不同小版本源码进行维护。
@@ -100,52 +114,75 @@ docker-compose -f docker-compose.yaml -p laravel12 up -d --build
 ```bash
 docker build -f Dockerfile -t laravel12:latest .
 ```
+
 启动容器
+
 ```bash
 docker run -d --name laravel12-run -p 8082:80 laravel12:latest
 ```
+
 查看所有运行中的容器
+
 ```bash
 docker ps
 ```
+
 查看所有容器（包含已停止）
+
 ```bash
 docker ps -a
 ```
+
 查看容器日志
+
 ```bash
 docker logs -f laravel12-run
 ```
+
 进入容器终端
+
 ```bash
 docker exec -it laravel12-run sh
 ```
+
 停止容器
+
 ```bash
 docker stop laravel12-run
 ```
+
 删除容器
+
 ```bash
 docker rm laravel12-run
 ```
+
 ## 二、常用 Docker Compose 命令（多容器编排）
 
 启动并构建服务
+
 ```bash
 docker-compose -f docker-compose.yaml up -d --build
 ```
+
 停止并移除所有服务容器
+
 ```bash
 docker-compose -f docker-compose.yaml down
 ```
+
 重启服务
+
 ```bash
 docker-compose -f docker-compose.yaml restart laravel12
 ```
+
 清理孤儿容器（未被 Compose 管理的剩余容器）
+
 ```bash
 docker-compose -f docker-compose.yaml up -d --remove-orphans
 ```
+
 ## 三、使用建议
 
 单容器场景（如整体打包镜像直接运行），推荐使用 docker 命令。
@@ -154,13 +191,13 @@ docker-compose -f docker-compose.yaml up -d --remove-orphans
 
 ## 四、示例对比
 
-| 操作	| 单容器命令示例	| 多容器命令示例| 
+| 操作 | 单容器命令示例 | 多容器命令示例|
 |------------------------------|--------------------|--------------------------|
-| 构建镜像	| docker build -f Dockerfile -t laravel12 .	| docker-compose -f docker-compose.yaml build| 
-| 启动服务	| docker run -d -p 8082:80 laravel12	| docker-compose -f docker-compose.yaml up -d| 
-| 停止服务	| docker stop laravel12-run	| docker-compose -f docker-compose.yaml down| 
-| 查看日志	| docker logs -f laravel12-run	| docker-compose -f docker-compose.yaml logs -f| 
-| 进入终端	| docker exec -it laravel12-run sh	| docker exec -it <服务名>  sh| 
+| 构建镜像 | docker build -f Dockerfile -t laravel12 . | docker-compose -f docker-compose.yaml build|
+| 启动服务 | docker run -d -p 8082:80 laravel12 | docker-compose -f docker-compose.yaml up -d|
+| 停止服务 | docker stop laravel12-run | docker-compose -f docker-compose.yaml down|
+| 查看日志 | docker logs -f laravel12-run | docker-compose -f docker-compose.yaml logs -f|
+| 进入终端 | docker exec -it laravel12-run sh | docker exec -it <服务名>  sh|
 
 请根据实际部署方式选择对应的命令使用。
 
@@ -168,14 +205,14 @@ docker-compose -f docker-compose.yaml up -d --remove-orphans
 
 | 方式                         | 适用场景           | 特点                     |
 |------------------------------|--------------------|--------------------------|
-|传统 nginx+php-fpm	|传统服务器或自定义环境|灵活可控，需环境手动配置|
+|传统 nginx+php-fpm |传统服务器或自定义环境|灵活可控，需环境手动配置|
 | docker-compose.yaml           | 生产/标准开发      | 镜像包含代码，启动即用   |
 | docker-compose.volume.yaml    | 本地开发调试       | 宿主机代码同步，无需重建 |
 | docker run（整体打包）        | 部署/测试/演示      | 一条命令，快速启动       |
 
 ---
 
-### 说明：
+### 说明
 
 - 这样结构清晰，方便用户根据需求选择部署方式
 - 传统部署放在第一个，满足你“源码+传统部署”的初衷
