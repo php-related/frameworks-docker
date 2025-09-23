@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
   webman:
-    container_name: webman2_1
-    image: webman2_1
+    container_name: webman1_6
+    image: webman1_6
     build:
       context: ..
       dockerfile: docker/Dockerfile
     ports:
-      - "8057:8787"
+      - "8054:8787"
     restart: always
     tty: true

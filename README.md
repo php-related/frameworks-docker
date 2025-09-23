@@ -17,7 +17,7 @@
 | 框架名称    | 已收录版本                         | Docker部署支持情况 | 官网/GitHub地址                                                                                 |
 | ----------- | -------------------------------- | ------------------ | ---------------------------------------------------------------------------------------------- |
 | ThinkPHP    | 3.2, 5.0, 5.1, 6.x, 8.0          | 已完成             | [官网](https://www.thinkphp.cn/) / [GitHub](https://github.com/top-think/think)               |
-| Webman     | 1.x, 2.x                         | 已完成             | [官网](https://www.workerman.net/webman/) / [GitHub](https://github.com/walkor/webman)        |
+| Webman     | 1.6, 2.1                         | 已完成             | [官网](https://www.workerman.net/webman/) / [GitHub](https://github.com/walkor/webman)        |
 | Laravel    | 4.2, 5.8, 6.x, 7.x, 8.x, 9.x, 10.x, 11.x, 12.x | 已完成           | [官网](https://laravel.com/) / [GitHub](https://github.com/laravel/laravel)                    |
 | Yii        | 1.1, 2.0                        | 已完成             | [官网](https://www.yiiframework.com/) / [GitHub](https://github.com/yiisoft-contrib/yiiframework.com) |
 | CakePHP    | 未开始                          | 否                 | [官网](https://cakephp.org/) / [GitHub](https://github.com/cakephp/cakephp)                    |

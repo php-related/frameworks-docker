@@ -1,0 +1,14 @@
+.git/
+runtime/
+logs/
+tmp/
+vendor/
+build/
+docker-compose.yml
+Dockerfile*
+*.log
+LICENSE
+README.md
+windows.*
+!/.env
+docker/

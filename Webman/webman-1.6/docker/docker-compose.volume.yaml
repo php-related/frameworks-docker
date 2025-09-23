@@ -2,14 +2,14 @@ version: '3.8'
 
 services:
   webman:
-    container_name: webman2_1-volume
-    image: webman2_1:volume
+    container_name: webman1_6-volume
+    image: webman1_6:volume
     working_dir: /app
     build:
       context: ..
       dockerfile: docker/Dockerfile.volume
     ports:
-      - "8056:8787"
+      - "8053:8787"
     volumes:
       - ../:/app:delegated   # 这里改为项目根目录
       - webman_vendor:/app/vendor  # 使用具名卷
