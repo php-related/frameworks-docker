@@ -1,0 +1,24 @@
+!.gitignore
+.git
+.svn
+.idea
+node_modules
+*.log
+.htaccess
+.gitignore
+.travis.yml
+.dockerignore
+nginx.conf
+
+supervisord
+supervisord.log
+supervisord.pid
+docker/Dockerfile
+docker/Dockerfile.volume
+docker/docker-compose.volume.yaml
+docker/docker-compose.yaml
+docker/README.md
+
+requirements/*
+# 这里根据你的应用目录进行调整,这里以应用目录是app为例
+app/index-test.php

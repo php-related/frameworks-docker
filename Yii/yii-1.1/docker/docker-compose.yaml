@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  yii1_1:
+    container_name: yii1_1
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: yii1_1
+    ports:
+      - "8201:80"
+    environment:
+      - APP_ENV=production
+    restart: unless-stopped
