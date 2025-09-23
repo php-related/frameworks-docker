@@ -6,7 +6,7 @@
 
 ## 核心特性
 
-- **全版本归档**：涵盖 Laravel、Symfony、ThinkPHP、Yii、CodeIgniter 等主流 PHP 框架及主要历史版本，持续补充中。
+- **全版本归档**：涵盖 Laravel、Webman、Symfony、ThinkPHP、Yii、CodeIgniter 等主流 PHP 框架及主要历史版本，持续补充中。
 - **标准化部署**：每个框架及版本均配备可复用的 Docker 部署方案，极大简化环境搭建流程，支持一键启动。
 - **原生兼容**：所有框架源码均为官方原版，支持直接通过 PHP-FPM + Nginx 部署，适用于源码分析与历史项目迁移。
 - **规范结构**：统一的目录命名和文档体系，方便查找、二次开发与团队协作。
