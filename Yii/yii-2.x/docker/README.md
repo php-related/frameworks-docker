@@ -1,6 +1,6 @@
-# Yii 1.1 Framework 项目使用说明
+# Yii 2.x Framework 项目使用说明
 
-本项目基于 **PHP Yii 1.1** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
+本项目基于 **PHP Yii 2.x** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
 
 - 传统部署（nginx + php-fpm）
 - Docker 部署（支持开发挂载卷和整体打包两种模式）
@@ -9,7 +9,7 @@
 
 ```text
 Yii/
-  └── yii-1.1/
+  └── yii-2.x/
       ├── ../                              # 官方原始源码
       ├── nginx.conf                       # 原生环境部署 Nginx 配置
       └── docker/                          # docker相关配置
@@ -27,10 +27,10 @@ Yii/
 
 ### 1. 环境准备
 
-- PHP<=7.0，包含 php-fpm 服务
+- PHP>=7.3，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
-- 项目源码放置目录，例如 `/var/www/yii1_1`
+- 项目源码放置目录，例如 `/var/www/yii2`
 
 ### 2. nginx 配置
 
@@ -41,9 +41,9 @@ Yii/
 确保 web 用户有读写权限：
 
 ```bash
-sudo chown -R www-data:www-data /var/www/yii1_1
-sudo find /var/www/yii1_1 -type f -exec chmod 644 {} \;
-sudo find /var/www/yii1_1 -type d -exec chmod 755 {} \;
+sudo chown -R www-data:www-data /var/www/yii2
+sudo find /var/www/yii2 -type f -exec chmod 644 {} \;
+sudo find /var/www/yii2 -type d -exec chmod 755 {} \;
 ```
 
 ### 4. 重启服务并访问
@@ -83,14 +83,14 @@ Docker 部署支持两种模式：
 #### 启动命令
 
 ```bash
-cd yii/yii-1.1/docker
-docker-compose -f docker-compose.volume.yaml -p yii1_1-volume up -d --build
+cd yii/yii-2.x/docker
+docker-compose -f docker-compose.volume.yaml -p yii2-volume up -d --build
 ```
 
 ### 访问项目
 ```
-# 假设端口映射为 `8200:80`，具体请查看`docker-compose.volume.yaml`：
-http://localhost:8200
+# 假设端口映射为 `8203:80`，具体请查看`docker-compose.volume.yaml`：
+http://localhost:8203
 ```
 
 ### 2. 整体打包镜像模式
@@ -102,14 +102,14 @@ http://localhost:8200
 启动命令：
 
 ```bash
-cd yii/yii-1.1/docker
-docker-compose -f docker-compose.yaml -p yii1_1 up -d --build
+cd yii/yii-2.x/docker
+docker-compose -f docker-compose.yaml -p yii2 up -d --build
 ```
 #### 访问项目
 
 ```
-# 假设端口映射为 `8201:80`，具体请查看`docker-compose.yaml`：
-http://localhost:8201
+# 假设端口映射为 `8204:80`，具体请查看`docker-compose.yaml`：
+http://localhost:8204
 ```
 
 #### 2.2 直接使用 docker run 启动
@@ -117,29 +117,29 @@ http://localhost:8201
 构建镜像：
 
 ```bash
-cd yii/yii-1.1
-docker build -f docker/Dockerfile -t yii1_1:run .
+cd yii/yii-2.x
+docker build -f docker/Dockerfile -t yii2:run .
 ```
 
 启动容器：
 
 ```bash
-docker run -d --name yii1_1-run -p 8202:80 yii1_1:run
+docker run -d --name yii2-run -p 8205:80 yii2:run
 ```
 
-或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`yii1_1:latest`），具体请查看`docker-compose.yaml`
+或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`yii2:latest`），具体请查看`docker-compose.yaml`
 
-启动容器（前提是存在yii1_1:latest镜像）：
+启动容器（前提是存在yii2:latest镜像）：
 
 ```bash
-docker run -d --name yii1_1-latest -p 8202:80 yii1_1:latest
+docker run -d --name yii2-latest -p 8205:80 yii2:latest
 ```
 
 #### 访问项目
 
 ```
-# 假设端口映射为 `8202:80`，这里是根据docker run启动时指定的端口：
-http://localhost:8202
+# 假设端口映射为 `8205:80`，这里是根据docker run启动时指定的端口：
+http://localhost:8205
 ```
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md
