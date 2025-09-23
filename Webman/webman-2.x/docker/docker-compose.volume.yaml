@@ -12,8 +12,11 @@ services:
       - "8056:8056"
     volumes:
       - ../:/app:delegated   # 这里改为项目根目录
+      - webman_vendor:/app/vendor  # 使用具名卷
     command: ["php", "start.php", "start"]
     restart: always
     tty: true
     environment:
       - WEBMAN_ENV=dev
+volumes:
+  webman_vendor:

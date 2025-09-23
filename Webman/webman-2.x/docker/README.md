@@ -19,6 +19,7 @@ Webman/
             ├──docker-compose.override.yml # 挂载模式配置，自动被 docker-compose 读取并覆盖
             └──README.md                   # 当前版本的部署与适配说明
 ```
+
 ---
 
 ## 一、源码与传统部署（nginx + php-fpm）
@@ -55,10 +56,12 @@ sudo systemctl restart php8.2-fpm
 sudo systemctl restart nginx
 ```
 
-### 访问项目：
+### 访问项目
+
 ```
 http://你的服务器IP或域名/
 ```
+
 ---
 
 ## 二、Docker 部署
@@ -88,6 +91,7 @@ docker-compose -f docker-compose.volume.yaml -p webman2_1-volume up -d --build
 ```
 
 ### 访问项目
+
 ```
 # 假设端口映射为 `8056:8056`，具体请查看`docker-compose.volume.yaml`：
 http://localhost:8056
@@ -105,6 +109,7 @@ http://localhost:8056
 cd Webman/Webman-2.x/docker
 docker-compose -f docker-compose.yaml -p webman2_1 up -d --build
 ```
+
 #### 访问项目
 
 ```
@@ -115,6 +120,7 @@ http://localhost:8057
 #### 2.2 直接使用 docker run 启动
 
 构建镜像：
+
 ```bash
 cd Webman/Webman-2.x
 docker build -f docker/Dockerfile -t webman2_1:run .
