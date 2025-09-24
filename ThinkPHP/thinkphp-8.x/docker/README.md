@@ -27,14 +27,14 @@ ThinkPHP/
 
 ### 1. 环境准备
 
-- PHP 8.2+，包含 php-fpm 服务
+- PHP>=8.2+，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
 - 项目源码放置目录，例如 `/var/www/thinkphp8`
 
 ### 2. nginx 配置
 
-项目提供 `nginx.conf` 示例配置(请参考ThinkPHP-12.x根目录下nginx.conf)
+项目提供 `nginx.conf` 示例配置(请参考ThinkPHP-8.x根目录下nginx.conf)
 
 ### 3. 权限设置
 

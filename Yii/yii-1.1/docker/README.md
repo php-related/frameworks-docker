@@ -34,7 +34,7 @@ Yii/
 
 ### 2. nginx 配置
 
-项目提供 `nginx.conf` 示例配置(请参考yii-12.x根目录下nginx.conf)
+项目提供 `nginx.conf` 示例配置(请参考yii-1.1根目录下nginx.conf)
 
 ### 3. 权限设置
 

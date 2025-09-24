@@ -35,7 +35,7 @@ Laravel/
 
 ### 2. nginx 配置
 
-项目提供 `nginx.conf` 示例配置(请参考laravel-11.x根目录下nginx.conf)
+项目提供 `nginx.conf` 示例配置(请参考laravel-6.x根目录下nginx.conf)
 
 ### 3. 权限设置
 
