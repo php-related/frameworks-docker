@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  thinkphp-app:
+  thinkphp8-app:
     container_name: thinkphp8-volume
     build:
       context: .

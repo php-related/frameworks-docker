@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  yii1_1:
+  yii1-app:
     container_name: yii1_1
     build:
       context: ..

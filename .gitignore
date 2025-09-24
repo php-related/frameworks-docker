@@ -157,3 +157,16 @@ Yii/yii-2.x/vendor/
 Yii/yii-2.x/tests/
 Yii/yii-2.x/tmp/
 ############################################################################
+
+###########################################################################
+# Ci4.x
+################################Ci4.x#################################
+CodeIgniter/ci-4.x/runtime/*
+# composer 依赖
+CodeIgniter/ci-4.x/vendor/
+CodeIgniter/ci-4.x/tests/
+CodeIgniter/ci-4.x/writeable/cache/*
+CodeIgniter/ci-4.x/writeable/logs/*
+CodeIgniter/ci-4.x/writeable/sessions/*
+CodeIgniter/ci-4.x/writeable/debugbar/*
+############################################################################

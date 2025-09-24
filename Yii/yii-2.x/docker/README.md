@@ -83,7 +83,7 @@ Docker 部署支持两种模式：
 #### 启动命令
 
 ```bash
-cd yii/yii-2.x/docker
+cd Yii/yii-2.x/docker
 docker-compose -f docker-compose.volume.yaml -p yii2-volume up -d --build
 ```
 
@@ -102,7 +102,7 @@ http://localhost:8203
 启动命令：
 
 ```bash
-cd yii/yii-2.x/docker
+cd Yii/yii-2.x/docker
 docker-compose -f docker-compose.yaml -p yii2 up -d --build
 ```
 #### 访问项目
@@ -117,7 +117,7 @@ http://localhost:8204
 构建镜像：
 
 ```bash
-cd yii/yii-2.x
+cd Yii/yii-2.x
 docker build -f docker/Dockerfile -t yii2:run .
 ```
 
