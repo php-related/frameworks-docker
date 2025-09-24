@@ -58,7 +58,7 @@ cd frameworks-docker
 ```
 
 2. 选择框架与版本
-复制所需框架版本完整文件夹（包含源码和相关配置），例如：
+复制所需框架版本完整文件夹，包含源码和相关配置，例如：
 
 ```bash
 cp -r Laravel/laravel-12.x /your/workspace/
