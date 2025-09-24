@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  ci3-app:
+    container_name: ci3
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: ci3
+    ports:
+      - "8304:80"
+    environment:
+      - APP_ENV=production
+    restart: unless-stopped

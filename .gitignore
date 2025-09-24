@@ -170,3 +170,14 @@ CodeIgniter/ci-4.x/writeable/logs/*
 CodeIgniter/ci-4.x/writeable/sessions/*
 CodeIgniter/ci-4.x/writeable/debugbar/*
 ############################################################################
+
+###########################################################################
+# Ci3.x
+################################Ci3.x#################################
+CodeIgniter/ci-3.x/runtime/*
+# composer 依赖
+CodeIgniter/ci-3.x/vendor/
+CodeIgniter/ci-3.x/tests/
+CodeIgniter/ci-3.x/application/logs/*
+CodeIgniter/ci-3.x/application/cache/*
+############################################################################
