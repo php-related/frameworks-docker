@@ -44,7 +44,7 @@
             ├──Dockerfile                  # Dockerfile 打包模式Dockerfile
             ├──Dockerfile.volume           # Dockerfile 挂载模式Dockerfile
             ├──docker-compose.yml          # 打包模式基础配置
-            ├──docker-compose.override.yml # 挂载模式配置，自动被 docker-compose 读取并覆盖
+            ├──docker-compose.volume.yml   # 挂载模式配置
             └──README.md                   # 当前版本的部署与适配说明
 ```
 
