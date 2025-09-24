@@ -181,3 +181,12 @@ CodeIgniter/ci-3.x/tests/
 CodeIgniter/ci-3.x/application/logs/*
 CodeIgniter/ci-3.x/application/cache/*
 ############################################################################
+
+###########################################################################
+# Symfony7.x
+################################Symfony7.x#################################
+Symfony/symfony-7.x/var/*
+# composer 依赖
+Symfony/symfony-7.x/vendor/
+Symfony/symfony-7.x/tests/
+############################################################################
