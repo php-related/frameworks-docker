@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  symfony6-app:
+    container_name: symfony6
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: symfony6
+    ports:
+      - "8404:80"
+    environment:
+      - APP_ENV=production
+      - DEFAULT_URI=http://localhost
+    restart: unless-stopped
