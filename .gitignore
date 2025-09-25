@@ -204,3 +204,14 @@ Symfony/symfony-7.x/vendor/
 Symfony/symfony-7.x/tests/
 Symfony/symfony-7.x/.env
 ############################################################################
+
+###########################################################################
+# CakePHP5.x
+################################CakePHP5.x#################################
+CakePHP/cakephp-5.x/var/*
+# composer 依赖
+CakePHP/cakephp-5.x/vendor/
+CakePHP/cakephp-5.x/tests/
+CakePHP/cakephp-5.x/tmp/*
+CakePHP/cakephp-5.x/logs/*
+############################################################################
