@@ -19,7 +19,10 @@ services:
     tty: true
     command: >
       /bin/sh -c "
-      if [ ! -d /app/vendor ]; then composer install --no-dev --optimize-autoloader; fi && \
+      mkdir -p /tmp && chmod 1777 /tmp && \
+      if [ ! -d /app/tmp ]; then mkdir -p /app/tmp; fi && \
+      chmod 1777 /app/tmp && \
+      COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader --no-interaction && \
       chown -R www-data:www-data /app/tmp /app/logs; \
       chmod -R 775 /app/tmp /app/logs; \
       /usr/bin/supervisord -c /etc/supervisord.conf

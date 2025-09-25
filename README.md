@@ -20,7 +20,7 @@
 | Webman     | 1.6, 2.1                         | 已完成             | [官网](https://www.workerman.net/webman/) / [GitHub](https://github.com/walkor/webman)        |
 | Laravel    | 4.2, 5.8, 6.x, 7.x, 8.x, 9.x, 10.x, 11.x, 12.x | 已完成           | [官网](https://laravel.com/) / [GitHub](https://github.com/laravel/laravel)                    |
 | Yii        | 1.1, 2.0                        | 已完成             | [官网](https://www.yiiframework.com/) / [GitHub](https://github.com/yiisoft-contrib/yiiframework.com) |
-| CakePHP    | 未开始                          | 否                 | [官网](https://cakephp.org/) / [GitHub](https://github.com/cakephp/cakephp)                    |
+| CakePHP    | 5.x                          | 进行中               | [官网](https://cakephp.org/) / [GitHub](https://github.com/cakephp/cakephp)                    |
 | CodeIgniter| 2.x, 3.x, 4.x                   | 已完成             | [官网](https://codeigniter.com/) / [GitHub](https://github.com/codeigniter4/CodeIgniter4)     |
 | Hyperf     | 未开始                          | 否                 | [官网](https://www.hyperf.io/) / [GitHub](https://github.com/hyperf/hyperf)                   |
 | Symfony    | 6.x, 7.x                          | 进行中                 | [官网](https://symfony.com/) / [GitHub](https://github.com/symfony/symfony)                   |
