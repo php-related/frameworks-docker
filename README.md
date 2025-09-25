@@ -23,8 +23,7 @@
 | CakePHP    | 未开始                          | 否                 | [官网](https://cakephp.org/) / [GitHub](https://github.com/cakephp/cakephp)                    |
 | CodeIgniter| 2.x, 3.x, 4.x                   | 已完成             | [官网](https://codeigniter.com/) / [GitHub](https://github.com/codeigniter4/CodeIgniter4)     |
 | Hyperf     | 未开始                          | 否                 | [官网](https://www.hyperf.io/) / [GitHub](https://github.com/hyperf/hyperf)                   |
-| Phalcon    | 未开始                          | 否                 | [官网](https://phalcon.io/en-us) / [GitHub](https://github.com/phalcon/phalcon)               |
-| Symfony    | 7.x                          | 进行中                 | [官网](https://symfony.com/) / [GitHub](https://github.com/symfony/symfony)                   |
+| Symfony    | 6.x, 7.x                          | 进行中                 | [官网](https://symfony.com/) / [GitHub](https://github.com/symfony/symfony)                   |
 
 ## 适用对象
 
