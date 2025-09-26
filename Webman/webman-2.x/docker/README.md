@@ -11,7 +11,6 @@
 Webman/
   └── webman-2.x/
       ├── ../                              # 官方原始源码
-      ├── nginx.conf                       # 原生环境部署 Nginx 配置
       └── docker/                          # docker相关配置
             ├──Dockerfile                  # Dockerfile 打包模式Dockerfile
             ├──Dockerfile.volume           # Dockerfile 挂载模式Dockerfile

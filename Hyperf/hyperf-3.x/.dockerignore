@@ -4,3 +4,6 @@
 !config/
 !composer.*
 
+.github/
+.devcontainer/
+test/
