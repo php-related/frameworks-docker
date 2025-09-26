@@ -6,8 +6,6 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile
-    volumes:
-      - ../:/app
     ports:
       - 8501:9501
     environment:

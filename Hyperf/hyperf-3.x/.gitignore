@@ -14,3 +14,4 @@ vendor/
 .vscode/
 /phpstan.neon
 /phpunit.xml
+test/
