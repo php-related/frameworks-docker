@@ -1,6 +1,6 @@
-# Laravel 10 Framework 项目使用说明
+# Laravel 10.x Framework 项目使用说明
 
-本项目基于 **PHP Laravel 10** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
+本项目基于 **PHP Laravel 10.x** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
 
 - 传统部署（nginx + php-fpm）
 - Docker 部署（支持开发挂载卷和整体打包两种模式）
@@ -31,7 +31,7 @@ Laravel/
 - PHP>=8.2+，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
-- 项目源码放置目录，例如 `/var/www/laravel10`
+- 项目源码放置目录，例如 `/var/www/laravel-10.x`
 
 ### 2. nginx 配置
 
@@ -42,9 +42,9 @@ Laravel/
 确保 web 用户有读写权限：
 
 ```bash
-sudo chown -R www-data:www-data /var/www/laravel10
-sudo find /var/www/laravel10 -type f -exec chmod 644 {} \;
-sudo find /var/www/laravel10 -type d -exec chmod 755 {} \;
+sudo chown -R www-data:www-data /var/www/laravel-10.x
+sudo find /var/www/laravel-10.x -type f -exec chmod 644 {} \;
+sudo find /var/www/laravel-10.x -type d -exec chmod 755 {} \;
 ```
 
 ### 4. 重启服务并访问

@@ -1,6 +1,6 @@
-# Laravel 9 Framework 项目使用说明
+# Laravel 9.x Framework 项目使用说明
 
-本项目基于 **PHP Laravel 9** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
+本项目基于 **PHP Laravel 9.x** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
 
 - 传统部署（nginx + php-fpm）
 - Docker 部署（支持开发挂载卷和整体打包两种模式）
@@ -19,6 +19,7 @@ Laravel/
             ├──docker-compose.override.yml # 挂载模式配置，自动被 docker-compose 读取并覆盖
             └──README.md                   # 当前版本的部署与适配说明
 ```
+
 ---
 
 ## 一、源码与传统部署（nginx + php-fpm）
@@ -30,7 +31,7 @@ Laravel/
 - PHP>=8.2+，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
-- 项目源码放置目录，例如 `/var/www/laravel9`
+- 项目源码放置目录，例如 `/var/www/laravel-9.x`
 
 ### 2. nginx 配置
 
@@ -41,9 +42,9 @@ Laravel/
 确保 web 用户有读写权限：
 
 ```bash
-sudo chown -R www-data:www-data /var/www/laravel9
-sudo find /var/www/laravel9 -type f -exec chmod 644 {} \;
-sudo find /var/www/laravel9 -type d -exec chmod 755 {} \;
+sudo chown -R www-data:www-data /var/www/laravel-9.x
+sudo find /var/www/laravel-9.x -type f -exec chmod 644 {} \;
+sudo find /var/www/laravel-9.x -type d -exec chmod 755 {} \;
 ```
 
 ### 4. 重启服务并访问
@@ -55,10 +56,12 @@ sudo systemctl restart php8.2-fpm
 sudo systemctl restart nginx
 ```
 
-### 访问项目：
+### 访问项目
+
 ```
 http://你的服务器IP或域名/
 ```
+
 ---
 
 ## 二、Docker 部署
@@ -88,6 +91,7 @@ docker-compose -f docker-compose.volume.yaml -p laravel9-volume up -d --build
 ```
 
 ### 访问项目
+
 ```
 # 假设端口映射为 `8071:80`，具体请查看`docker-compose.volume.yaml`：
 http://localhost:8071
@@ -105,6 +109,7 @@ http://localhost:8071
 cd Laravel/laravel-9.x/docker
 docker-compose -f docker-compose.yaml -p laravel9 up -d --build
 ```
+
 #### 访问项目
 
 ```

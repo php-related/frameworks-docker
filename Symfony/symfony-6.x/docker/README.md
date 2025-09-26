@@ -31,20 +31,20 @@ Symfony/
 - PHP>=8.2，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
-- 项目源码放置目录，例如 `/var/www/Symfony6`
+- 项目源码放置目录，例如 `/var/www/symfony-6.x`
 
 ### 2. nginx 配置
 
-项目提供 `nginx.conf` 示例配置(请参考Symfony-6.x根目录下nginx.conf)
+项目提供 `nginx.conf` 示例配置(请参考symfony-6.x根目录下nginx.conf)
 
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
 
 ```bash
-sudo chown -R www-data:www-data /var/www/Symfony2
-sudo find /var/www/Symfony2 -type f -exec chmod 644 {} \;
-sudo find /var/www/Symfony2 -type d -exec chmod 755 {} \;
+sudo chown -R www-data:www-data /var/www/symfony-6.x
+sudo find /var/www/symfony-6.x -type f -exec chmod 644 {} \;
+sudo find /var/www/symfony-6.x -type d -exec chmod 755 {} \;
 ```
 
 ### 4. 重启服务并访问

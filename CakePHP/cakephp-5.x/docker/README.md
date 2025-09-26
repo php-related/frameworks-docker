@@ -31,20 +31,20 @@ Cakephp/
 - PHP>=8.2，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
-- 项目源码放置目录，例如 `/var/www/Cakephp5`
+- 项目源码放置目录，例如 `/var/www/cakephp-5.x`
 
 ### 2. nginx 配置
 
-项目提供 `nginx.conf` 示例配置(请参考Cakephp-5.x根目录下nginx.conf)
+项目提供 `nginx.conf` 示例配置(请参考cakephp-5.x根目录下nginx.conf)
 
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
 
 ```bash
-sudo chown -R www-data:www-data /var/www/Cakephp2
-sudo find /var/www/Cakephp2 -type f -exec chmod 644 {} \;
-sudo find /var/www/Cakephp2 -type d -exec chmod 755 {} \;
+sudo chown -R www-data:www-data /var/www/cakephp-5.x
+sudo find /var/www/cakephp-5.x -type f -exec chmod 644 {} \;
+sudo find /var/www/cakephp-5.x -type d -exec chmod 755 {} \;
 ```
 
 ### 4. 重启服务并访问

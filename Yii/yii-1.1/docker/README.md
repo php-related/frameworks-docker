@@ -19,6 +19,7 @@ Yii/
             ├──docker-compose.override.yml # 挂载模式配置，自动被 docker-compose 读取并覆盖
             └──README.md                   # 当前版本的部署与适配说明
 ```
+
 ---
 
 ## 一、源码与传统部署（nginx + php-fpm）
@@ -30,7 +31,7 @@ Yii/
 - PHP<=7.0，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
-- 项目源码放置目录，例如 `/var/www/yii1_1`
+- 项目源码放置目录，例如 `/var/www/yii-1.1`
 
 ### 2. nginx 配置
 
@@ -41,9 +42,9 @@ Yii/
 确保 web 用户有读写权限：
 
 ```bash
-sudo chown -R www-data:www-data /var/www/yii1_1
-sudo find /var/www/yii1_1 -type f -exec chmod 644 {} \;
-sudo find /var/www/yii1_1 -type d -exec chmod 755 {} \;
+sudo chown -R www-data:www-data /var/www/yii-1.1
+sudo find /var/www/yii-1.1 -type f -exec chmod 644 {} \;
+sudo find /var/www/yii-1.1 -type d -exec chmod 755 {} \;
 ```
 
 ### 4. 重启服务并访问
@@ -55,10 +56,12 @@ sudo systemctl restart php8.2-fpm
 sudo systemctl restart nginx
 ```
 
-### 访问项目：
+### 访问项目
+
 ```
 http://你的服务器IP或域名/
 ```
+
 ---
 
 ## 二、Docker 部署
@@ -88,6 +91,7 @@ docker-compose -f docker-compose.volume.yaml -p yii1_1-volume up -d --build
 ```
 
 ### 访问项目
+
 ```
 # 假设端口映射为 `8200:80`，具体请查看`docker-compose.volume.yaml`：
 http://localhost:8200
@@ -105,6 +109,7 @@ http://localhost:8200
 cd yii/yii-1.1/docker
 docker-compose -f docker-compose.yaml -p yii1_1 up -d --build
 ```
+
 #### 访问项目
 
 ```

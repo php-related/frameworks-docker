@@ -31,7 +31,7 @@ Laravel/
 - PHP<=7.3+，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
-- 项目源码放置目录，例如 `/var/www/laravel5_8`
+- 项目源码放置目录，例如 `/var/www/laravel-5.8`
 
 ### 2. nginx 配置
 
@@ -42,9 +42,9 @@ Laravel/
 确保 web 用户有读写权限：
 
 ```bash
-sudo chown -R www-data:www-data /var/www/laravel5_8
-sudo find /var/www/laravel5_8 -type f -exec chmod 644 {} \;
-sudo find /var/www/laravel5_8 -type d -exec chmod 755 {} \;
+sudo chown -R www-data:www-data /var/www/laravel-5.8
+sudo find /var/www/laravel-5.8 -type f -exec chmod 644 {} \;
+sudo find /var/www/laravel-5.8 -type d -exec chmod 755 {} \;
 ```
 
 ### 4. 重启服务并访问

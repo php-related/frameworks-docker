@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  cakephp4-app:
+    container_name: cakephp4
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: cakephp4
+    ports:
+      - "8454:80"
+    environment:
+      - APP_ENV=production
+    restart: unless-stopped

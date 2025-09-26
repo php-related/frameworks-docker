@@ -42,9 +42,9 @@ Webman/
 确保 web 用户有读写权限：
 
 ```bash
-sudo chown -R www-data:www-data /var/www/Webman1_6
-sudo find /var/www/Webman1_6 -type f -exec chmod 644 {} \;
-sudo find /var/www/Webman1_6 -type d -exec chmod 755 {} \;
+sudo chown -R www-data:www-data /var/www/Webman-1.6
+sudo find /var/www/Webman-1.6 -type f -exec chmod 644 {} \;
+sudo find /var/www/Webman-1.6 -type d -exec chmod 755 {} \;
 ```
 
 ### 4. 重启服务并访问
