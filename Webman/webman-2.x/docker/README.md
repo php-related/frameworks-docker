@@ -22,49 +22,7 @@ Webman/
 
 ---
 
-## 一、源码与传统部署（nginx + php-fpm）
-
-适合习惯使用传统 LEMP 环境的用户，直接运行源码，无需 Docker。
-
-### 1. 环境准备
-
-- PHP>=8.2+，包含 php-fpm 服务
-- nginx 服务器
-- MySQL 或其他数据库服务
-- 项目源码放置目录，例如 `/var/www/webman-2.x`
-
-### 2. nginx 配置
-
-项目提供 `nginx.conf` 示例配置(请参考webman-2.x根目录下nginx.conf)
-
-### 3. 权限设置
-
-确保 web 用户有读写权限：
-
-```bash
-sudo chown -R www-data:www-data /var/www/webman-2.x
-sudo find /var/www/webman-2.x -type f -exec chmod 644 {} \;
-sudo find /var/www/webman-2.x -type d -exec chmod 755 {} \;
-```
-
-### 4. 重启服务并访问
-
-重启 php-fpm 与 nginx：
-
-```bash
-sudo systemctl restart php8.2-fpm
-sudo systemctl restart nginx
-```
-
-### 访问项目
-
-```
-http://你的服务器IP或域名/
-```
-
----
-
-## 二、Docker 部署
+## 一、Docker 部署
 
 适合希望使用容器技术快速启动和环境隔离的用户。
 

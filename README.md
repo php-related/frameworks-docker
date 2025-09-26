@@ -92,10 +92,12 @@ docker-compose -f docker-compose.yaml -p laravel12 up -d --build
 
 ### 2. 原生环境部署
 
-具体操作请参考对应框架版本目录下 docker 文件夹中的 README.md，例如：Laravel/laravel-12.x/docker/README.md。
+除 Webman 和 Hyperf 框架外，其他框架均支持传统的部署方式。具体操作请参阅各框架对应版本目录下的 docker 文件夹中的 README.md 文档，例如：Laravel/laravel-12.x/docker/README.md。
 
 - 按照 README.md 中的指导，配置本地 PHP-FPM 和 Nginx 服务，实现框架的原生环境部署。
 - 本项目与官方文档保持高度一致，建议结合官方说明进行操作，确保部署流程的准确性和可靠性。
+
+如果您在使用过程中发现某些框架的原生环境部署流程存在较大差异，欢迎您与我联系，并提供具体需要补充的框架信息，我会根据需求尽快完善相关版本资源
 
 ---
 
