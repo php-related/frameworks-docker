@@ -1,0 +1,19 @@
+version: '3'
+services:
+  hyperf3-skeleton:
+    container_name: hyperf3-skeleton
+    image: hyperf3-skeleton
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ../:/app
+    ports:
+      - 8501:9501
+    environment:
+      - APP_ENV=dev
+      - SCAN_CACHEABLE=false
+
+networks:
+  default:
+    name: hyperf-skeleton

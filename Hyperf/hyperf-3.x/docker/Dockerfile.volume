@@ -1,0 +1,40 @@
+# 阶段1：构建依赖
+FROM registry.cn-hangzhou.aliyuncs.com/panxu/php:8.2-fpm-alpine AS builder
+WORKDIR /app
+
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-interaction --optimize-autoloader && composer clear-cache  
+
+# 阶段2：生产镜像，只复制依赖
+FROM registry.cn-hangzhou.aliyuncs.com/panxu/php:8.2-fpm-alpine
+WORKDIR /app
+COPY --from=builder /app/vendor ./vendor
+
+LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT" app.name="Hyperf"
+
+ARG timezone
+ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
+    APP_ENV=prod \
+    SCAN_CACHEABLE=(true)
+
+# 设置时区和 PHP 配置
+RUN set -ex \
+    && php -v \
+    && php -m \
+    && php --ri swoole \
+    && cd /etc/php* \
+    && { \
+    echo "upload_max_filesize=128M"; \
+    echo "post_max_size=128M"; \
+    echo "memory_limit=1G"; \
+    echo "date.timezone=${TIMEZONE}"; \
+    } | tee conf.d/99_overrides.ini \
+    && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
+    && echo "${TIMEZONE}" > /etc/timezone \
+    && rm -rf /var/cache/apk/* /tmp/* /usr/share/man
+
+# 暴露端口
+EXPOSE 9501
+
+# 启动命令，使用相对路径
+ENTRYPOINT ["php", "bin/hyperf.php", "start"]
