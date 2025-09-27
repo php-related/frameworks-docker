@@ -8,3 +8,6 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+supervisord
+supervisord.log
+supervisord.pid

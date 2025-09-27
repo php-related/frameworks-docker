@@ -24,7 +24,8 @@
 | CodeIgniter| 2.x, 3.x, 4.x                   | 已完成             | [官网](https://codeigniter.com/) / [GitHub](https://github.com/codeigniter4/CodeIgniter4)     |
 | Hyperf     | 2.x,3.x                          | 进行中                 | [官网](https://www.hyperf.io/) / [GitHub](https://github.com/hyperf/hyperf)                   |
 | Symfony    | 6.x, 7.x                          | 进行中                 | [官网](https://symfony.com/) / [GitHub](https://github.com/symfony/symfony)                   |
- Slim    | 4.x                          | 进行中                 | [官网](https://www.slimframework.com//) / [GitHub](https://github.com/slimphp/Slim)                   |
+|Slim    | 4.x                          | 进行中                 | [官网](https://www.slimframework.com/) / [GitHub](https://github.com/slimphp/Slim)                   |
+|Fat-Free   | 3.x                          | 进行中                 | [官网](https://www.fatfreeframework.com/) / [GitHub](https://github.com/bcosca/fatfree)                   |
 
 ## 适用对象
 

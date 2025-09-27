@@ -12,3 +12,7 @@ runtime/*
 var/*
 tests/*
 logs/*
+
+supervisord
+supervisord.log
+supervisord.pid

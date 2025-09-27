@@ -20,10 +20,12 @@ TEST.md
 
 # 其它配置文件
 .htaccess
-
 supervisord
 supervisord.log
 supervisord.pid
+vendor/
+.gethub/
+
 
 ############################################################################
 # Laravel5.8
@@ -254,4 +256,15 @@ Slim/slim-4.x/runtime/
 Slim/slim-4.x/logs/
 Slim/slim-4.x/tests/
 Slim/slim-4.x/var/
+############################################################################
+
+###########################################################################
+# Fat-free-3.x
+################################Fat-free-3.x#################################
+# composer 依赖
+Fat-free/fatfree-3.x/vendor/
+Fat-free/fatfree-3.x/test/
+Fat-free/fatfree-3.x/runtime/
+Fat-free/fatfree-3.x/logs/
+Fat-free/fatfree-3.x/tests/
 ############################################################################

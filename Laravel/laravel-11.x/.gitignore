@@ -21,3 +21,7 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+supervisord
+supervisord.log
+supervisord.pid

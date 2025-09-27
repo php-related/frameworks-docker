@@ -56,3 +56,7 @@ yarn-error.log
 tests/
 tmp/*
 logs/*
+
+supervisord
+supervisord.log
+supervisord.pid

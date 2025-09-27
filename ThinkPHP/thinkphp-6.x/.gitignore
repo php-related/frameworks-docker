@@ -5,3 +5,7 @@
 .env
 
 runtime/*
+
+supervisord
+supervisord.log
+supervisord.pid

@@ -22,3 +22,7 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+supervisord
+supervisord.log
+supervisord.pid

@@ -124,3 +124,7 @@ _modules/*
 
 /results/
 /phpunit*.xml
+
+supervisord
+supervisord.log
+supervisord.pid

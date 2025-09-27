@@ -13,3 +13,7 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+supervisord
+supervisord.log
+supervisord.pid

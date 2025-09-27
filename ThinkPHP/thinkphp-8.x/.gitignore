@@ -12,3 +12,7 @@ Thumbs.db
 /.project
 
 runtime/*
+
+supervisord
+supervisord.log
+supervisord.pid

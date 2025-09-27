@@ -57,3 +57,7 @@ tests/
 tmp/*
 logs/*
 
+
+supervisord
+supervisord.log
+supervisord.pid

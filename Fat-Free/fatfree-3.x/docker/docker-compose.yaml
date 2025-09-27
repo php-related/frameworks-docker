@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  fatfree3-app:
+    container_name: fatfree3
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: fatfree3
+    ports:
+      - "8651:80"
+    environment:
+      - APP_ENV=production
+    restart: unless-stopped
