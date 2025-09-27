@@ -15,6 +15,7 @@ vendor/
 /phpstan.neon
 /phpunit.xml
 test/
+.github/
 supervisord
 supervisord.log
 supervisord.pid
