@@ -36,17 +36,18 @@
 
 ## 📚 支持框架与版本
 
-| 框架名称   | 已收录版本                          | Docker 支持 | 官网 / GitHub 链接                                                                                 |
-|------------|-----------------------------------|-------------|--------------------------------------------------------------------------------------------------|
-| ThinkPHP   | 3.2, 5.0, 5.1, 6.x, 8.0           | 已完成      | [官网](https://www.thinkphp.cn/) / [GitHub](https://github.com/top-think/think)                   |
-| Webman    | 1.x, 2.x                         | 已完成      | [官网](https://www.workerman.net/webman/) / [GitHub](https://github.com/walkor/webman)            |
-| Laravel   | 4.2, 5.8, 6.x - 12.x              | 已完成      | [官网](https://laravel.com/) / [GitHub](https://github.com/laravel/laravel)                       |
-| Yii       | 1.1, 2.0                        | 已完成      | [官网](https://www.yiiframework.com/) / [GitHub](https://github.com/yiisoft-contrib/yiiframework.com) |
-| CakePHP   | 未开始                          | 否          | [官网](https://cakephp.org/) / [GitHub](https://github.com/cakephp/cakephp)                       |
-| CodeIgniter| 2.x, 3.x, 4.x                   | 已完成      | [官网](https://codeigniter.com/) / [GitHub](https://github.com/codeigniter4/CodeIgniter4)         |
-| Hyperf    | 未开始                          | 否          | [官网](https://www.hyperf.io/) / [GitHub](https://github.com/hyperf/hyperf)                       |
-| Phalcon   | 未开始                          | 否          | [官网](https://phalcon.io/en-us) / [GitHub](https://github.com/phalcon/phalcon)                   |
-| Symfony   | 未开始                          | 否          | [官网](https://symfony.com/) / [GitHub](https://github.com/symfony/symfony)                       |
+| 框架名称    | 已收录版本                         | Docker部署支持情况 | 官网/GitHub地址                                                                                 |
+| ----------- | -------------------------------- | ------------------ | ---------------------------------------------------------------------------------------------- |
+| ThinkPHP    | 3.2, 5.0, 5.1, 6.x, 8.0          | 已完成             | [官网](https://www.thinkphp.cn/) / [GitHub](https://github.com/top-think/think)               |
+| Webman     | 1.6, 2.1                         | 已完成             | [官网](https://www.workerman.net/webman/) / [GitHub](https://github.com/walkor/webman)        |
+| Laravel    | 4.2, 5.8, 6.x, 7.x, 8.x, 9.x, 10.x, 11.x, 12.x | 已完成           | [官网](https://laravel.com/) / [GitHub](https://github.com/laravel/laravel)                    |
+| Yii        | 1.1, 2.0                        | 已完成             | [官网](https://www.yiiframework.com/) / [GitHub](https://github.com/yiisoft-contrib/yiiframework.com) |
+| CakePHP    | 4.x, 5.x                          | 进行中               | [官网](https://cakephp.org/) / [GitHub](https://github.com/cakephp/cakephp)                    |
+| CodeIgniter| 2.x, 3.x, 4.x                   | 已完成             | [官网](https://codeigniter.com/) / [GitHub](https://github.com/codeigniter4/CodeIgniter4)     |
+| Hyperf     | 2.x,3.x                          | 进行中                 | [官网](https://www.hyperf.io/) / [GitHub](https://github.com/hyperf/hyperf)                   |
+| Symfony    | 6.x, 7.x                          | 进行中                 | [官网](https://symfony.com/) / [GitHub](https://github.com/symfony/symfony)                   |
+|Slim    | 4.x                          | 进行中                 | [官网](https://www.slimframework.com/) / [GitHub](https://github.com/slimphp/Slim)                   |
+|Fat-Free   | 3.x                          | 进行中                 | [官网](https://www.fatfreeframework.com/) / [GitHub](https://github.com/bcosca/fatfree)                   |
 
 ---
 

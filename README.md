@@ -83,13 +83,15 @@ cp -r Laravel/laravel-12.x /your/workspace/
 ```shell
 cd Laravel/laravel-12.0/docker
 
-1. 开发调试（带挂载）
+1. 开发调试（挂载模式）
 docker-compose -f docker-compose.volume.yaml -p laravel12-volume up -d --build
 
-2. 生产运行（整体打包）（推荐）
+2. 生产运行（镜像模式）（推荐）
 docker-compose -f docker-compose.yaml -p laravel12 up -d --build
 ```
 
+- 挂载模式适用于本地开发与调试场景，实现代码与配置的热更新，便于实时修改并立即生效，从而提升开发效率和迭代速度。
+- 适用于生产环境的标准容器化部署和 Kubernetes 集群管理，能够有效支持未来的版本升级与弹性伸缩，符合云原生应用的最佳实践及行业标准。
 ---
 
 ### 2. 原生环境部署
