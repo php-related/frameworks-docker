@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  slim4-app:
+    container_name: slim4
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: slim4
+    ports:
+      - "8601:80"
+    environment:
+      - APP_ENV=production
+    restart: unless-stopped

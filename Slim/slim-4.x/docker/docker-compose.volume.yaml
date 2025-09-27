@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  slim4-app:
+    container_name: slim4-volume
+    build:
+      context: .
+      dockerfile: Dockerfile.volume
+    image: slim4:volume
+    ports:
+      - "8600:80"
+    volumes:
+      - ../:/app
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./supervisord.conf:/etc/supervisord.conf:ro
+    environment:
+      - APP_ENV=local
+    command: >
+      /bin/sh -c "
+      if [ ! -d /app/vendor ]; then
+        composer install --no-dev --optimize-autoloader;
+      fi;
+      /usr/bin/supervisord -c /etc/supervisord.conf
+      "
