@@ -1,0 +1,10 @@
+**
+!app/
+!bin/
+!config/
+!composer.*
+
+.github/
+.devcontainer/
+test/
+runtime/

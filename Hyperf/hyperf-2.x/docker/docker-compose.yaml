@@ -1,0 +1,17 @@
+version: '3'
+services:
+  hyperf2-skeleton:
+    container_name: hyperf2-skeleton
+    image: hyperf2-skeleton
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - 8504:9501
+    environment:
+      - APP_ENV=dev
+      - SCAN_CACHEABLE=false
+
+networks:
+  default:
+    name: hyperf-skeleton

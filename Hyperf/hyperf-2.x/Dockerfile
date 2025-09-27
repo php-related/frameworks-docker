@@ -5,9 +5,7 @@
 # @contact  group@hyperf.io
 # @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
 
-# FROM hyperf/hyperf:8.3-alpine-v3.19-swoole
-# FROM hyperf/hyperf:8.3-alpine-v3.19-swoole
-FROM registry.cn-hangzhou.aliyuncs.com/panxu/php:8.2-fpm-alpine
+FROM hyperf/hyperf:8.0-alpine-v3.15-swoole
 LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT" app.name="Hyperf"
 
 ##
@@ -27,14 +25,14 @@ RUN set -ex \
     && php -m \
     && php --ri swoole \
     #  ---------- some config ----------
-    && cd /etc/php* \
+    && cd /etc/php8 \
     # - config PHP
     && { \
-    echo "upload_max_filesize=128M"; \
-    echo "post_max_size=128M"; \
-    echo "memory_limit=1G"; \
-    echo "date.timezone=${TIMEZONE}"; \
-    } | tee /usr/local/etc/php/conf.d/99_overrides.ini \
+        echo "upload_max_filesize=128M"; \
+        echo "post_max_size=128M"; \
+        echo "memory_limit=1G"; \
+        echo "date.timezone=${TIMEZONE}"; \
+    } | tee conf.d/99_overrides.ini \
     # - config timezone
     && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
     && echo "${TIMEZONE}" > /etc/timezone \
@@ -42,15 +40,15 @@ RUN set -ex \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \
     && echo -e "\033[42;37m Build Completed :).\033[0m\n"
 
-WORKDIR /app
+WORKDIR /opt/www
 
 # Composer Cache
 # COPY ./composer.* /opt/www/
 # RUN composer install --no-dev --no-scripts
 
-COPY . /app
+COPY . /opt/www
 RUN composer install --no-dev -o && php bin/hyperf.php
 
 EXPOSE 9501
 
-ENTRYPOINT ["php", "bin/hyperf.php", "start"]
+ENTRYPOINT ["php", "/opt/www/bin/hyperf.php", "start"]

@@ -1,12 +1,12 @@
 # 阶段1：构建依赖
-FROM registry.cn-hangzhou.aliyuncs.com/panxu/php:8.2-fpm-alpine AS builder
+FROM registry.cn-hangzhou.aliyuncs.com/panxu/php:8.0-fpm-alpine AS builder
 WORKDIR /app
 
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --no-interaction --optimize-autoloader && composer clear-cache  
 
 # 阶段2：生产镜像，只复制依赖
-FROM registry.cn-hangzhou.aliyuncs.com/panxu/php:8.2-fpm-alpine
+FROM registry.cn-hangzhou.aliyuncs.com/panxu/php:8.0-fpm-alpine
 WORKDIR /app
 COPY --from=builder /app/vendor ./vendor
 
@@ -22,16 +22,20 @@ RUN set -ex \
     && php -v \
     && php -m \
     && php --ri swoole \
-    && cd /etc/php* \
+    # 写入 PHP 配置覆盖文件
     && { \
     echo "upload_max_filesize=128M"; \
     echo "post_max_size=128M"; \
     echo "memory_limit=1G"; \
     echo "date.timezone=${TIMEZONE}"; \
-    } | tee /usr/local/etc/php/conf.d/99_overrides.ini \
+    } > /usr/local/etc/php/conf.d/99_overrides.ini \
+    # 显式关闭 swoole 短函数名
+    && echo "swoole.use_shortname=Off" > /usr/local/etc/php/conf.d/99_swoole.ini \
+    # 设置时区文件和环境变量
     && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
     && echo "${TIMEZONE}" > /etc/timezone \
-    && rm -rf /var/cache/apk/* /tmp/* /usr/share/man
+    && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \
+    && echo -e "\033[42;37m Build Completed :).\033[0m\n"
 
 # 暴露端口
 EXPOSE 9501

@@ -1,6 +1,6 @@
-# Hyperf 3.x Framework 项目使用说明
+# Hyperf 2.x Framework 项目使用说明
 
-本项目基于 **PHP Hyperf 3.x** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
+本项目基于 **PHP Hyperf 2.x** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
 
 - 传统部署（nginx + php-fpm）
 - Docker 部署（支持开发挂载卷和整体打包两种模式）
@@ -9,7 +9,7 @@
 
 ```text
 Hyperf/
-  └── hyperf-3.x/
+  └── hyperf-2.x/
       ├── ../                              # 官方原始源码
       └── docker/                          # docker相关配置
             ├──Dockerfile                  # Dockerfile 打包模式Dockerfile
@@ -43,15 +43,15 @@ Docker 部署支持两种模式：
 #### 启动命令
 
 ```bash
-cd Hyperf/hyperf-3.x
-docker-compose -f docker-compose.volume.yaml -p hyperf3-volume up -d --build
+cd Hyperf/hyperf-2.x
+docker-compose -f docker-compose.volume.yaml -p hyperf2-volume up -d --build
 ```
 
 ### 访问项目
 
 ```
-# 假设端口映射为 `8500:9501`，具体请查看`docker-compose.volume.yaml`：
-http://localhost:8500
+# 假设端口映射为 `8503:9501`，具体请查看`docker-compose.volume.yaml`：
+http://localhost:8503
 ```
 
 ### 2. 整体打包镜像模式
@@ -63,15 +63,15 @@ http://localhost:8500
 启动命令：
 
 ```bash
-cd Hyperf/hyperf-3.x/docker
-docker-compose -f docker-compose.yaml -p hyperf3 up -d --build
+cd Hyperf/hyperf-2.x/docker
+docker-compose -f docker-compose.yaml -p hyperf2 up -d --build
 ```
 
 #### 访问项目
 
 ```
-# 假设端口映射为 `8501:9501`，具体请查看`docker-compose.yaml`：
-http://localhost:8501
+# 假设端口映射为 `8504:9501`，具体请查看`docker-compose.yaml`：
+http://localhost:8504
 ```
 
 #### 2.2 直接使用 docker run 启动
@@ -79,29 +79,29 @@ http://localhost:8501
 构建镜像：
 
 ```bash
-cd Hyperf/hyperf-3.x
-docker build -f docker/Dockerfile -t hyperf3:run .
+cd Hyperf/hyperf-2.x
+docker build -f docker/Dockerfile -t hyperf2:run .
 ```
 
 启动容器：
 
 ```bash
-docker run -d --name hyperf3-run -p 8502:9501 hyperf3:run
+docker run -d --name hyperf2-run -p 8505:9501 hyperf2:run
 ```
 
-或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`hyperf3:latest`），具体请查看`docker-compose.yaml`
+或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`hyperf2:latest`），具体请查看`docker-compose.yaml`
 
-启动容器（前提是存在hyperf3:latest镜像）：
+启动容器（前提是存在hyperf2:latest镜像）：
 
 ```bash
-docker run -d --name hyperf3-latest -p 8502:9501 hyperf3:latest
+docker run -d --name hyperf2-latest -p 8505:9501 hyperf2:latest
 ```
 
 #### 访问项目
 
 ```
-# 假设端口映射为 `8502:9501`，这里是根据docker run启动时指定的端口：
-http://localhost:8502
+# 假设端口映射为 `8505:9501`，这里是根据docker run启动时指定的端口：
+http://localhost:8505
 ```
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md

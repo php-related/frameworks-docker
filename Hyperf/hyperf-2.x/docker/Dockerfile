@@ -5,9 +5,7 @@
 # @contact  group@hyperf.io
 # @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
 
-# FROM hyperf/hyperf:8.3-alpine-v3.19-swoole
-# FROM hyperf/hyperf:8.3-alpine-v3.19-swoole
-FROM registry.cn-hangzhou.aliyuncs.com/panxu/php:8.2-fpm-alpine
+FROM registry.cn-hangzhou.aliyuncs.com/panxu/php:8.0-fpm-alpine
 LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT" app.name="Hyperf"
 
 ##
@@ -22,30 +20,27 @@ ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
 
 # update
 RUN set -ex \
-    # show php version and extensions
     && php -v \
     && php -m \
     && php --ri swoole \
-    #  ---------- some config ----------
-    && cd /etc/php* \
-    # - config PHP
+    # 写入 PHP 配置覆盖文件
     && { \
     echo "upload_max_filesize=128M"; \
     echo "post_max_size=128M"; \
     echo "memory_limit=1G"; \
     echo "date.timezone=${TIMEZONE}"; \
-    } | tee /usr/local/etc/php/conf.d/99_overrides.ini \
-    # - config timezone
+    } > /usr/local/etc/php/conf.d/99_overrides.ini \
+    # 显式关闭 swoole 短函数名
+    && echo "swoole.use_shortname=Off" > /usr/local/etc/php/conf.d/99_swoole.ini \
+    # 设置时区文件和环境变量
     && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
     && echo "${TIMEZONE}" > /etc/timezone \
-    # ---------- clear works ----------
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \
     && echo -e "\033[42;37m Build Completed :).\033[0m\n"
 
 WORKDIR /app
-
 # Composer Cache
-# COPY ./composer.* /opt/www/
+# COPY ./composer.* /app/
 # RUN composer install --no-dev --no-scripts
 
 COPY . /app
