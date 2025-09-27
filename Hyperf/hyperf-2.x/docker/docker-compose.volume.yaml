@@ -12,7 +12,7 @@ services:
       - ../:/app:delegated   # 这里改为项目根目录
       - hyperf_vendor:/app/vendor  # 使用具名卷
     ports:
-      - 8504:9501
+      - 8503:9501
     environment:
       - APP_ENV=dev
       - SCAN_CACHEABLE=false
