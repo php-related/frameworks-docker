@@ -27,6 +27,7 @@
 |Slim    | 4.x                          | 进行中                 | [官网](https://www.slimframework.com/) / [GitHub](https://github.com/slimphp/Slim)                   |
 |Fat-Free   | 3.x                          | 进行中                 | [官网](https://www.fatfreeframework.com/) / [GitHub](https://github.com/bcosca/fatfree)                   |
 |Flight   | 3.x                          | 进行中                 | [官网](https://docs.flightphp.com/) / [GitHub](https://github.com/flightphp/core)                   |
+|Fuel   | 1.9                          | 进行中                 | [官网](https://fuelphp.com/) / [GitHub](https://github.com/fuel/fuelphp.com)                   |
 
 ## 适用对象
 
