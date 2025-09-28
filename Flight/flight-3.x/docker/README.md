@@ -31,20 +31,20 @@ Flight/
 - PHP>=8.4+，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
-- 项目源码放置目录，例如 `/var/www/fatfree-3.x`
+- 项目源码放置目录，例如 `/var/www/flight-3.x`
 
 ### 2. nginx 配置
 
-项目提供 `nginx.conf` 示例配置(请参考fatfree-3.x根目录下nginx.conf)
+项目提供 `nginx.conf` 示例配置(请参考flight-3.x根目录下nginx.conf)
 
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
 
 ```bash
-sudo chown -R www-data:www-data /var/www/fatfree-3.x
-sudo find /var/www/fatfree-3.x -type f -exec chmod 644 {} \;
-sudo find /var/www/fatfree-3.x -type d -exec chmod 755 {} \;
+sudo chown -R www-data:www-data /var/www/flight-3.x
+sudo find /var/www/flight-3.x -type f -exec chmod 644 {} \;
+sudo find /var/www/flight-3.x -type d -exec chmod 755 {} \;
 ```
 
 ### 4. 重启服务并访问
@@ -86,7 +86,7 @@ Docker 部署支持两种模式：
 #### 启动命令
 
 ```bash
-cd fatfree/fatfree-3.x/docker
+cd Flight/flight-3.x/docker
 docker-compose -f docker-compose.volume.yaml -p flight3-volume up -d --build
 ```
 
@@ -106,7 +106,7 @@ http://localhost:8680
 启动命令：
 
 ```bash
-cd fatfree/fatfree-3.x/docker
+cd Flight/flight-3.x/docker
 docker-compose -f docker-compose.yaml -p flight3 up -d --build
 ```
 
@@ -122,7 +122,7 @@ http://localhost:8681
 构建镜像：
 
 ```bash
-cd fatfree/fatfree-3.x
+cd Flight/flight-3.x
 docker build -f docker/Dockerfile -t flight3:run .
 ```
 
@@ -134,7 +134,7 @@ docker run -d --name flight3-run -p 8682:80 flight3:run
 
 或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`flight3:latest`），具体请查看`docker-compose.yaml`
 
-启动容器（前提是存在fatfree12:latest镜像）：
+启动容器（前提是存在flight12:latest镜像）：
 
 ```bash
 docker run -d --name flight3-latest -p 8682:80 flight3:latest
