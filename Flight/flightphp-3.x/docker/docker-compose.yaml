@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  flight3-app:
+    container_name: flight3
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: flight3
+    ports:
+      - "8681:80"
+    environment:
+      - APP_ENV=production
+    restart: unless-stopped

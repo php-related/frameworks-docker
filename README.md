@@ -26,6 +26,7 @@
 | Symfony    | 6.x, 7.x                          | 进行中                 | [官网](https://symfony.com/) / [GitHub](https://github.com/symfony/symfony)                   |
 |Slim    | 4.x                          | 进行中                 | [官网](https://www.slimframework.com/) / [GitHub](https://github.com/slimphp/Slim)                   |
 |Fat-Free   | 3.x                          | 进行中                 | [官网](https://www.fatfreeframework.com/) / [GitHub](https://github.com/bcosca/fatfree)                   |
+|Flight   | 3.x                          | 进行中                 | [官网](https://docs.flightphp.com/) / [GitHub](https://github.com/flightphp/core)                   |
 
 ## 适用对象
 
@@ -92,6 +93,7 @@ docker-compose -f docker-compose.yaml -p laravel12 up -d --build
 
 - 挂载模式适用于本地开发与调试场景，实现代码与配置的热更新，便于实时修改并立即生效，从而提升开发效率和迭代速度。
 - 镜像模式适用于生产环境的标准容器化部署和 Kubernetes 集群管理，能够有效支持未来的版本升级与弹性伸缩，符合云原生应用的最佳实践及行业标准。
+
 ---
 
 ### 2. 原生环境部署

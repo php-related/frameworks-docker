@@ -1,6 +1,6 @@
-# Fatfree 3.x Framework 项目使用说明
+# Flight 3.x Framework 项目使用说明
 
-本项目基于 **PHP Fatfree 3.x** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
+本项目基于 **PHP Flight 3.x** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
 
 - 传统部署（nginx + php-fpm）
 - Docker 部署（支持开发挂载卷和整体打包两种模式）
@@ -8,8 +8,8 @@
 ## 目录结构
 
 ```text
-Fatfree/
-  └── fatfree-3.x/
+Flight/
+  └── flight-3.x/
       ├── ../                              # 官方原始源码
       ├── nginx.conf                       # 原生环境部署 Nginx 配置
       └── docker/                          # docker相关配置
@@ -86,15 +86,15 @@ Docker 部署支持两种模式：
 #### 启动命令
 
 ```bash
-cd Fatfree/fatfree-3.x/docker
-docker-compose -f docker-compose.volume.yaml -p fatfree3-volume up -d --build
+cd fatfree/fatfree-3.x/docker
+docker-compose -f docker-compose.volume.yaml -p flight3-volume up -d --build
 ```
 
 ### 访问项目
 
 ```
-# 假设端口映射为 `8650:80`，具体请查看`docker-compose.volume.yaml`：
-http://localhost:8650
+# 假设端口映射为 `8680:80`，具体请查看`docker-compose.volume.yaml`：
+http://localhost:8680
 ```
 
 ### 2. 整体打包镜像模式
@@ -106,15 +106,15 @@ http://localhost:8650
 启动命令：
 
 ```bash
-cd Fatfree/fatfree-3.x/docker
-docker-compose -f docker-compose.yaml -p fatfree3 up -d --build
+cd fatfree/fatfree-3.x/docker
+docker-compose -f docker-compose.yaml -p flight3 up -d --build
 ```
 
 #### 访问项目
 
 ```
-# 假设端口映射为 `8651:80`，具体请查看`docker-compose.yaml`：
-http://localhost:8651
+# 假设端口映射为 `8681:80`，具体请查看`docker-compose.yaml`：
+http://localhost:8681
 ```
 
 #### 2.2 直接使用 docker run 启动
@@ -122,29 +122,29 @@ http://localhost:8651
 构建镜像：
 
 ```bash
-cd Fatfree/fatfree-3.x
-docker build -f docker/Dockerfile -t fatfree3:run .
+cd fatfree/fatfree-3.x
+docker build -f docker/Dockerfile -t flight3:run .
 ```
 
 启动容器：
 
 ```bash
-docker run -d --name fatfree3-run -p 8652:80 fatfree3:run
+docker run -d --name flight3-run -p 8682:80 flight3:run
 ```
 
-或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`fatfree3:latest`），具体请查看`docker-compose.yaml`
+或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`flight3:latest`），具体请查看`docker-compose.yaml`
 
 启动容器（前提是存在fatfree12:latest镜像）：
 
 ```bash
-docker run -d --name fatfree3-latest -p 8652:80 fatfree3:latest
+docker run -d --name flight3-latest -p 8682:80 flight3:latest
 ```
 
 #### 访问项目
 
 ```
-# 假设端口映射为 `8652:80`，这里是根据docker run启动时指定的端口：
-http://localhost:8652
+# 假设端口映射为 `8682:80`，这里是根据docker run启动时指定的端口：
+http://localhost:8682
 ```
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md

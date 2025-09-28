@@ -48,6 +48,7 @@
 | Symfony    | 6.x, 7.x                          | 进行中                 | [官网](https://symfony.com/) / [GitHub](https://github.com/symfony/symfony)                   |
 |Slim    | 4.x                          | 进行中                 | [官网](https://www.slimframework.com/) / [GitHub](https://github.com/slimphp/Slim)                   |
 |Fat-Free   | 3.x                          | 进行中                 | [官网](https://www.fatfreeframework.com/) / [GitHub](https://github.com/bcosca/fatfree)                   |
+|Flight   | 3.x                          | 进行中                 | [官网](https://docs.flightphp.com/) / [GitHub](https://github.com/flightphp/core)                   |
 
 ---
 
