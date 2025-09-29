@@ -48,14 +48,14 @@
 ```text
 <framework>/
   └── <version>/
-      ├── ../                              # 官方原始源码
-      ├── nginx.conf                       # 原生环境部署 Nginx 配置
-      └── docker/                          # docker相关配置
-            ├──Dockerfile                  # Dockerfile 打包模式Dockerfile
-            ├──Dockerfile.volume           # Dockerfile 挂载模式Dockerfile
-            ├──docker-compose.yml          # 打包模式基础配置
-            ├──docker-compose.volume.yml   # 挂载模式配置
-            └──README.md                   # 当前版本的部署与适配说明
+      ├── ../                               # 源代码
+      ├── nginx.conf                        # Nginx  配置
+      └── docker/                           # Docker 配置
+            ├── Dockerfile                  # 镜像模式 Dockerfile
+            ├── Dockerfile.volume           # 挂载模式 Dockerfile
+            ├── docker-compose.yml          # 镜像模式启动配置
+            ├── docker-compose.volume.yml   # 挂载模式启动配置
+            └── README.md                   # 部署说明文档
 ```
 
 ## 快速开始
