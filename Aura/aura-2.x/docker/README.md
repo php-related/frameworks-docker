@@ -41,7 +41,7 @@ Docker 部署支持两种模式：
 
 启动命令:
 ```bash
-docker-compose -f /frameworks-docker/Aura/aura-2.x/docker/docker-compose.volume.yaml -p aura2-volume up -d --build
+docker-compose -f /aura-2.x/docker/docker-compose.volume.yaml -p aura2-volume up -d --build
 ```
 
 访问项目:
@@ -58,7 +58,7 @@ http://localhost:8700
 
 启动命令：
 ```bash
-docker-compose -f /frameworks-docker/Aura/aura-2.x/docker/docker-compose.yaml -p aura2 up -d --build
+docker-compose -f /aura-2.x/docker/docker-compose.yaml -p aura2 up -d --build
 ```
 
 访问项目：
@@ -71,7 +71,7 @@ http://localhost:8701
 
 构建镜像：
 ```bash
-docker build -f /frameworks-docker/Aura/aura-2.x/docker/Dockerfile -t aura2:run .
+docker build -f /aura-2.x/docker/Dockerfile -t aura2:run .
 ```
 
 启动容器：
@@ -79,10 +79,10 @@ docker build -f /frameworks-docker/Aura/aura-2.x/docker/Dockerfile -t aura2:run 
 docker run -d --name aura2-run -p 8455:80 aura2:run
 ```
 
-或者使用镜像模式产生镜像：（`aura2:latest`），具体请查看`docker-compose.yaml`，启动容器（前提是存在aura2:latest镜像）：
+或者使用镜像模式产生镜像：（`aura2:latest`），具体请查看`docker-compose.yaml`。
 
 ```bash
-docker run -d --name aura2:latest -p 8702:80 aura2:latest
+docker run -d --name aura2-latest -p 8702:80 aura2:latest
 ```
 
 访问项目：
@@ -112,7 +112,6 @@ http://localhost:8702
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
-
 ```bash
 sudo chown -R www-data:www-data /var/www/aura-2.x
 sudo find /var/www/aura-2.x -type f -exec chmod 644 {} \;
@@ -122,18 +121,17 @@ sudo find /var/www/aura-2.x -type d -exec chmod 755 {} \;
 ### 4. 重启服务并访问
 
 重启 php-fpm 与 nginx：
-
 ```bash
 sudo systemctl restart php7.3-fpm
 sudo systemctl restart nginx
 ```
 
 访问项目:
-
 ```
 http://你的服务器IP或域名/
 ```
 ---
+
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md
 
 ## 注意事项

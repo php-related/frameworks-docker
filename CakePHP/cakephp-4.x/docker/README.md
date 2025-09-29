@@ -19,10 +19,82 @@ Cakephp/
             ├──docker-compose.override.yml # 挂载模式配置，自动被 docker-compose 读取并覆盖
             └──README.md                   # 当前版本的部署与适配说明
 ```
+---
+
+## 一、Docker 部署
+
+### 环境准备
+
+- 已安装 [Docker](https://docs.docker.com/get-docker/)
+- 已安装 [docker-compose](https://docs.docker.com/compose/install/)
+- 推荐使用 Linux 或 WSL2 等高性能本地开发环境
+
+适合希望使用容器技术快速启动和环境隔离的用户。
+
+Docker 部署支持两种模式：
+
+- 挂载模式：代码与宿主机同步，适合开发调试
+- 镜像模式：镜像内包含代码，适合生产或快速测试
+
+### 1. 挂载模式
+
+> 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
+
+启动命令：
+```bash
+docker-compose -f /cakephp-4.x/docker/docker-compose.volume.yaml -p cakephp4-volume up -d --build
+```
+
+访问项目：
+```
+http://localhost:8453
+```
+假设端口映射为 `8453:80`，具体请查看`docker-compose.volume.yaml`
+
+### 2. 整体打包镜像模式
+
+> 使用标准 Dockerfile 构建，镜像内包含完整代码，适合生产环境或快速部署。
+
+#### 2.1 使用 docker-compose 启动
+
+启动命令：
+```bash
+docker-compose -f /cakephp-4.x/docker/docker-compose.yaml -p cakephp4 up -d --build
+```
+
+访问项目：
+```
+http://localhost:8454
+```
+假设端口映射为 `8454:80`，具体请查看`docker-compose.yaml`
+
+#### 2.2 直接使用 docker run 启动
+
+构建镜像：
+```bash
+docker build -f /cakephp-4.x/docker/Dockerfile -t cakephp4:run .
+```
+
+启动容器：
+```bash
+docker run -d --name cakephp4-run -p 8455:80 cakephp4:run
+```
+
+或者使用镜像模式产生镜像：（`cakephp4:latest`），具体请查看`docker-compose.yaml`。
+
+```bash
+docker run -d --name cakephp4-latest -p 8455:80 cakephp4:latest
+```
+
+访问项目：
+```
+http://localhost:8455
+```
+假设端口映射为 `8455:80`，这里是根据docker run启动时指定的端口。
 
 ---
 
-## 一、源码与传统部署（nginx + php-fpm）
+## 二、源码与传统部署（nginx + php-fpm）
 
 适合习惯使用传统 LEMP 环境的用户，直接运行源码，无需 Docker。
 
@@ -40,7 +112,6 @@ Cakephp/
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
-
 ```bash
 sudo chown -R www-data:www-data /var/www/cakephp-4.x
 sudo find /var/www/cakephp-4.x -type f -exec chmod 644 {} \;
@@ -50,102 +121,17 @@ sudo find /var/www/cakephp-4.x -type d -exec chmod 755 {} \;
 ### 4. 重启服务并访问
 
 重启 php-fpm 与 nginx：
-
 ```bash
 sudo systemctl restart php8.2-fpm
 sudo systemctl restart nginx
 ```
 
-### 访问项目
-
+访问项目：
 ```
 http://你的服务器IP或域名/
 ```
 
 ---
-
-## 二、Docker 部署
-
-适合希望使用容器技术快速启动和环境隔离的用户。
-
-Docker 部署支持两种模式：
-
-- 挂载卷开发模式：代码与宿主机同步，适合开发调试
-- 整体打包镜像模式：镜像内包含代码，适合生产或快速测试
-
-### 环境准备
-
-- 已安装 [Docker](https://docs.docker.com/get-docker/)
-- 已安装 [docker-compose](https://docs.docker.com/compose/install/)
-- 推荐使用 Linux 或 WSL2 等高性能本地开发环境
-
-### 1. 挂载卷开发模式
-
-> 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
-
-#### 启动命令
-
-```bash
-cd Cakephp/cakephp-4.x/docker
-docker-compose -f docker-compose.volume.yaml -p cakephp4-volume up -d --build
-```
-
-### 访问项目
-
-```
-# 假设端口映射为 `8453:80`，具体请查看`docker-compose.volume.yaml`：
-http://localhost:8453
-```
-
-### 2. 整体打包镜像模式
-
-> 使用标准 Dockerfile 构建，镜像内包含完整代码，适合生产环境或快速部署。
-
-#### 2.1 使用 docker-compose 启动
-
-启动命令：
-
-```bash
-cd Cakephp/cakephp-4.x/docker
-docker-compose -f docker-compose.yaml -p cakephp4 up -d --build
-```
-
-#### 访问项目
-
-```
-# 假设端口映射为 `8454:80`，具体请查看`docker-compose.yaml`：
-http://localhost:8454
-```
-
-#### 2.2 直接使用 docker run 启动
-
-构建镜像：
-
-```bash
-cd Cakephp/cakephp-4.x
-docker build -f docker/Dockerfile -t cakephp4:run .
-```
-
-启动容器：
-
-```bash
-docker run -d --name cakephp4-run -p 8455:80 cakephp4:run
-```
-
-或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`cakephp4:latest`），具体请查看`docker-compose.yaml`
-
-启动容器（前提是存在cakephp4:latest镜像）：
-
-```bash
-docker run -d --name cakephp4-latest -p 8455:80 cakephp4:latest
-```
-
-#### 访问项目
-
-```
-# 假设端口映射为 `8455:80`，这里是根据docker run启动时指定的端口：
-http://localhost:8455
-```
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md
 
