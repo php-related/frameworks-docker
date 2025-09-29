@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  lumen10-app:
+    container_name: lumen10
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: lumen10
+    ports:
+      - "8801:80"
+    environment:
+      - APP_ENV=production
+    restart: unless-stopped
