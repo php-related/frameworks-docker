@@ -79,45 +79,71 @@ cp -r frameworks-docker/Laravel/laravel-12.x /your/workspace/
 
 如果您在使用过程中发现某些小版本之间存在较大差异，而本项目尚未单独收录该版本源码，欢迎您与我联系，并提供具体需要补充的小版本信息，我会根据需求尽快完善相关版本资源。
 
-### 1. Docker 一键部署（推荐）
+### 一、Docker 一键部署（推荐）
 
-先决条件
+### 环境准备
 
-- 安装 Docker（版本建议 20.10+）
-- 安装 Docker Compose（版本建议 1.28+ 或使用 Docker Desktop 自带版本）
+- 已安装 [Docker](https://docs.docker.com/get-docker/)
+- 已安装 [docker-compose](https://docs.docker.com/compose/install/)
+- 推荐使用 Linux 或 WSL2 等高性能本地开发环境
+
+适合希望使用容器技术快速启动和环境隔离的用户。
+
+Docker 部署支持两种模式：
+
+- 挂载模式：代码与宿主机同步，适合开发调试
+- 镜像模式：镜像内包含代码，适合生产或快速测试
 
 以 Laravel 12.x 为例：
 
-```shell
-cd Laravel/laravel-12.0/docker
+### 1. 挂载模式
+
+> 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
+
+启动容器：
+```bash
+docker-compose -f /laravel-12.x/docker/docker-compose.volume.yaml -p laravel12-volume up -d --build
 ```
 
-1. 开发调试（挂载模式）
+## 2. 镜像模式
 
-```shell
-docker-compose -f docker-compose.volume.yaml -p laravel12-volume up -d --build
+> 使用标准 Dockerfile 构建，镜像内包含完整代码，适合生产环境或快速部署。
+
+#### 2.1 使用 docker-compose 启动
+
+启动容器：
+```bash
+docker-compose -f /laravel-12.x/docker/docker-compose.yaml -p laravel12 up -d --build
 ```
 
-2. 生产运行（镜像模式）（推荐）
+#### 2.2 直接使用 docker run 启动
 
-```shell
-docker-compose -f docker-compose.yaml -p laravel12 up -d --build
-
+构建镜像：
+```bash
+docker build -f /laravel-12.x/docker/Dockerfile -t laravel12:run /laravel-12.x/docker
 ```
 
-- 挂载模式适用于本地开发与调试场景，实现代码与配置的热更新，便于实时修改并立即生效，从而提升开发效率和迭代速度。
-- 镜像模式适用于生产环境的标准容器化部署和 Kubernetes 集群管理，能够有效支持未来的版本升级与弹性伸缩，符合云原生应用的最佳实践及行业标准。
+启动容器：
+```bash
+docker run -d --name laravel12-run -p 8083:80 laravel12:run
+```
+
+或者使用镜像模式产生镜像：（`laravel12:latest`），具体请查看`docker-compose.yaml`。
+
+```bash
+docker run -d --name laravel12-latest -p 8083:80 laravel12:latest
+```
 
 ---
 
-### 2. 原生环境部署
+### 二、源码与传统部署（nginx + php-fpm）
 
 除 Webman 和 Hyperf 框架外，其他框架均支持传统的部署方式。具体操作请参阅各框架对应版本目录下的 docker 文件夹中的 README.md 文档，例如：Laravel/laravel-12.x/docker/README.md。
 
 - 按照 README.md 中的指导，配置本地 PHP-FPM 和 Nginx 服务，实现框架的原生环境部署。
 - 本项目与官方文档保持高度一致，建议结合官方说明进行操作，确保部署流程的准确性和可靠性。
 
-如果您在使用过程中发现某些框架的原生环境部署流程存在较大差异，欢迎您与我联系，并提供具体需要补充的框架信息，我会根据需求尽快完善相关版本资源
+如果您在使用过程中发现某些框架的原生环境部署流程存在较大差异，欢迎您与我联系，并提供具体需要补充的框架信息，我会根据需求尽快完善相关版本资源。
 
 ---
 

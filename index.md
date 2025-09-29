@@ -114,20 +114,42 @@ Docker 20.10+
 Docker Compose 1.28+（或 Docker Desktop 内置版本）
 以 Laravel 12.x 为例：
 
+### 1. 挂载模式
+
+> 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
+
+启动容器：
 ```bash
-cd Laravel/laravel-12.x/docker
+docker-compose -f /laravel-12.x/docker/docker-compose.volume.yaml -p laravel12-volume up -d --build
 ```
 
-# 开发调试（宿主机挂载代码）
+## 2. 镜像模式
 
+> 使用标准 Dockerfile 构建，镜像内包含完整代码，适合生产环境或快速部署。
+
+#### 2.1 使用 docker-compose 启动
+
+启动容器：
 ```bash
-docker-compose -f docker-compose.volume.yaml -p laravel12-volume up -d --build
+docker-compose -f /laravel-12.x/docker/docker-compose.yaml -p laravel12 up -d --build
 ```
 
-# 生产运行（整体打包）
+#### 2.2 直接使用 docker run 启动
+
+构建镜像：
+```bash
+docker build -f /laravel-12.x/docker/Dockerfile -t laravel12:run /laravel-12.x/docker
+```
+
+启动容器：
+```bash
+docker run -d --name laravel12-run -p 8083:80 laravel12:run
+```
+
+或者使用镜像模式产生镜像：（`laravel12:latest`），具体请查看`docker-compose.yaml`。
 
 ```bash
-docker-compose -f docker-compose.yaml -p laravel12 up -d --build
+docker run -d --name laravel12-latest -p 8083:80 laravel12:latest
 ```
 
 ## 🖥️ 原生环境部署
