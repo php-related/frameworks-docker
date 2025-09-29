@@ -79,7 +79,7 @@ docker build -f /frameworks-docker/Aura/aura-2.x/docker/Dockerfile -t aura2:run 
 docker run -d --name aura2-run -p 8455:80 aura2:run
 ```
 
-或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`aura2:latest`），具体请查看`docker-compose.yaml`，启动容器（前提是存在cakephp4:latest镜像）：
+或者使用镜像模式产生镜像：（`aura2:latest`），具体请查看`docker-compose.yaml`，启动容器（前提是存在aura2:latest镜像）：
 
 ```bash
 docker run -d --name aura2:latest -p 8702:80 aura2:latest
@@ -89,7 +89,9 @@ docker run -d --name aura2:latest -p 8702:80 aura2:latest
 ```
 http://localhost:8702
 ```
+
 假设端口映射为 `8702:80`，这里是根据docker run启动时指定的端口
+
 ---
 
 ## 二、源码与传统部署（nginx + php-fpm）
