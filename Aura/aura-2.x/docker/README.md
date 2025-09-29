@@ -10,14 +10,14 @@
 ```text
 Aura/
   └── aura-2.x/
-      ├── ../                              # 官方原始源码
-      ├── nginx.conf                       # 原生环境部署 Nginx 配置
-      └── docker/                          # docker相关配置
-            ├──Dockerfile                  # Dockerfile 打包模式Dockerfile
-            ├──Dockerfile.volume           # Dockerfile 挂载模式Dockerfile
-            ├──docker-compose.yml          # 打包模式基础配置
-            ├──docker-compose.override.yml # 挂载模式配置，自动被 docker-compose 读取并覆盖
-            └──README.md                   # 当前版本的部署与适配说明
+      ├── ../                               # 源代码
+      ├── nginx.conf                        # Nginx  配置
+      └── docker/                           # Docker 配置
+            ├── Dockerfile                  # 镜像模式 Dockerfile
+            ├── Dockerfile.volume           # 挂载模式 Dockerfile
+            ├── docker-compose.yml          # 镜像模式启动配置
+            ├── docker-compose.volume.yml   # 挂载模式启动配置
+            └── README.md         
 ```
 
 ---
@@ -56,7 +56,7 @@ sudo systemctl restart php7.3-fpm
 sudo systemctl restart nginx
 ```
 
-### 访问项目
+访问项目:
 
 ```
 http://你的服务器IP或域名/
@@ -83,19 +83,12 @@ Docker 部署支持两种模式：
 
 > 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
 
-进入到项目docker目录：
-
+启动命令:
 ```bash
-cd Aura/aura-2.x/docker
+docker-compose -f /Aura/aura-2.x/docker/docker-compose.volume.yaml -p aura2-volume up -d --build
 ```
 
-启动命令
-```bash
-docker-compose -f docker-compose.volume.yaml -p aura2-volume up -d --build
-```
-
-访问项目
-
+访问项目:
 ```
 http://localhost:8700
 ```
@@ -107,19 +100,12 @@ http://localhost:8700
 
 #### 2.1 使用 docker-compose 启动
 
-进入到项目docker目录：
-
-```bash
-cd Aura/aura-2.x/docker
-```
-
 启动命令：
 ```bash
-docker-compose -f docker-compose.yaml -p aura2 up -d --build
+docker-compose -f /Aura/aura-2.x/docker/docker-compose.yaml -p aura2 up -d --build
 ```
 
-访问项目
-
+访问项目：
 ```
 http://localhost:8701
 ```
@@ -127,12 +113,23 @@ http://localhost:8701
 
 #### 2.2 直接使用 docker run 启动
 
+构建镜像：
+```bash
+docker build -f /Aura/aura-2.x/docker/Dockerfile -t aura2:run .
+```
+
+启动容器：
+```bash
+docker run -d --name cakephp4-run -p 8455:80 aura2:run
+```
+
+或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`cakephp4:latest`），具体请查看`docker-compose.yaml`，启动容器（前提是存在cakephp4:latest镜像）：
+
 ```bash
 docker run -d --name aura2:latest -p 8702:80 aura2:latest
 ```
 
-访问项目
-
+访问项目：
 ```
 http://localhost:8702
 ```
