@@ -66,51 +66,59 @@ http://你的服务器IP或域名/
 
 ## 二、Docker 部署
 
-适合希望使用容器技术快速启动和环境隔离的用户。
-
-Docker 部署支持两种模式：
-
-- 挂载卷开发模式：代码与宿主机同步，适合开发调试
-- 整体打包镜像模式：镜像内包含代码，适合生产或快速测试
-
 ### 环境准备
 
 - 已安装 [Docker](https://docs.docker.com/get-docker/)
 - 已安装 [docker-compose](https://docs.docker.com/compose/install/)
 - 推荐使用 Linux 或 WSL2 等高性能本地开发环境
 
-### 1. 挂载卷开发模式
+适合希望使用容器技术快速启动和环境隔离的用户。
+
+Docker 部署支持两种模式：
+
+- 挂载模式：代码与宿主机同步，适合开发调试
+- 镜像模式：镜像内包含代码，适合生产或快速测试
+
+### 1. 挂载模式
 
 > 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
 
-#### 启动命令
+进入到项目docker目录：
 
 ```bash
 cd Aura/aura-2.x/docker
-docker-compose -f docker-compose.volume.yaml -p aura3-volume up -d --build
 ```
 
-### 访问项目
+启动命令
+```bash
+docker-compose -f docker-compose.volume.yaml -p aura2-volume up -d --build
+```
+
+访问项目
 
 ```
 # 假设端口映射为 `8700:80`，具体请查看`docker-compose.volume.yaml`：
 http://localhost:8700
 ```
 
-### 2. 整体打包镜像模式
+### 2. 镜像模式
 
 > 使用标准 Dockerfile 构建，镜像内包含完整代码，适合生产环境或快速部署。
 
 #### 2.1 使用 docker-compose 启动
 
-启动命令：
+进入到项目docker目录：
 
 ```bash
 cd Aura/aura-2.x/docker
-docker-compose -f docker-compose.yaml -p aura3 up -d --build
 ```
 
-#### 访问项目
+启动命令：
+```bash
+docker-compose -f docker-compose.yaml -p aura2 up -d --build
+```
+
+访问项目
 
 ```
 # 假设端口映射为 `8701:80`，具体请查看`docker-compose.yaml`：
@@ -119,28 +127,11 @@ http://localhost:8701
 
 #### 2.2 直接使用 docker run 启动
 
-构建镜像：
-
 ```bash
-cd Aura/aura-2.x
-docker build -f docker/Dockerfile -t aura3:run .
+docker run -d --name aura2:latest -p 8702:80 aura2:latest
 ```
 
-启动容器：
-
-```bash
-docker run -d --name aura3-run -p 8702:80 aura3:run
-```
-
-或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`aura3:latest`），具体请查看`docker-compose.yaml`
-
-启动容器（前提是存在aura12:latest镜像）：
-
-```bash
-docker run -d --name aura3-latest -p 8702:80 aura3:latest
-```
-
-#### 访问项目
+访问项目
 
 ```
 # 假设端口映射为 `8702:80`，这里是根据docker run启动时指定的端口：
