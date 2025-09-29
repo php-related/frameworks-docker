@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  aura2-app:
+    container_name: aura2
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: aura2
+    ports:
+      - "8700:80"
+    environment:
+      - APP_ENV=production
+    restart: unless-stopped
