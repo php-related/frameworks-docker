@@ -51,7 +51,7 @@ http://localhost:8453
 ```
 假设端口映射为 `8453:80`，具体请查看`docker-compose.volume.yaml`
 
-### 2. 整体打包镜像模式
+### 2. 镜像模式
 
 > 使用标准 Dockerfile 构建，镜像内包含完整代码，适合生产环境或快速部署。
 

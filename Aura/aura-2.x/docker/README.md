@@ -100,7 +100,7 @@ http://localhost:8702
 
 ### 1. 环境准备
 
-- PHP<=7.3+，包含 php-fpm 服务
+- PHP=7.3+，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
 - 项目源码放置目录，例如 `/var/www/aura-2.x`

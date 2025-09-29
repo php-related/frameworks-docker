@@ -56,7 +56,7 @@ sudo systemctl restart php7.3-fpm
 sudo systemctl restart nginx
 ```
 
-### 访问项目
+访问项目：
 
 ```
 http://你的服务器IP或域名/
@@ -83,21 +83,21 @@ Docker 部署支持两种模式：
 
 > 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
 
-#### 启动命令
+启动命令：
 
 ```bash
 cd ThinkPHP/thinkphp-3.2/docker
 docker-compose -f docker-compose.volume.yaml -p thinkphp3_2-volume up -d --build
 ```
 
-### 访问项目
+访问项目：
 
 ```
 # 假设端口映射为 `8113:80`，具体请查看`docker-compose.volume.yaml`：
 http://localhost:8113
 ```
 
-### 2. 整体打包镜像模式
+### 2. 镜像模式
 
 > 使用标准 Dockerfile 构建，镜像内包含完整代码，适合生产环境或快速部署。
 
@@ -110,7 +110,7 @@ cd ThinkPHP/thinkphp-3.2/docker
 docker-compose -f docker-compose.yaml -p thinkphp3_2 up -d --build
 ```
 
-#### 访问项目
+访问项目：
 
 ```
 # 假设端口映射为 `8114:80`，具体请查看`docker-compose.yaml`：
@@ -140,7 +140,7 @@ docker run -d --name thinkphp3_2-run -p 8115:80 thinkphp3_2:run
 docker run -d --name thinkphp3_2-latest -p 8115:80 thinkphp3_2:latest
 ```
 
-#### 访问项目
+访问项目：
 
 ```
 # 假设端口映射为 `8115:80`，这里是根据docker run启动时指定的端口：

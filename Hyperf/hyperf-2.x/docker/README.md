@@ -40,21 +40,21 @@ Docker 部署支持两种模式：
 
 > 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
 
-#### 启动命令
+启动命令：
 
 ```bash
 cd Hyperf/hyperf-2.x
 docker-compose -f docker-compose.volume.yaml -p hyperf2-volume up -d --build
 ```
 
-### 访问项目
+访问项目：
 
 ```
 # 假设端口映射为 `8503:9501`，具体请查看`docker-compose.volume.yaml`：
 http://localhost:8503
 ```
 
-### 2. 整体打包镜像模式
+### 2. 镜像模式
 
 > 使用标准 Dockerfile 构建，镜像内包含完整代码，适合生产环境或快速部署。
 
@@ -67,7 +67,7 @@ cd Hyperf/hyperf-2.x/docker
 docker-compose -f docker-compose.yaml -p hyperf2 up -d --build
 ```
 
-#### 访问项目
+访问项目：
 
 ```
 # 假设端口映射为 `8504:9501`，具体请查看`docker-compose.yaml`：
@@ -97,7 +97,7 @@ docker run -d --name hyperf2-run -p 8505:9501 hyperf2:run
 docker run -d --name hyperf2-latest -p 8505:9501 hyperf2:latest
 ```
 
-#### 访问项目
+访问项目：
 
 ```
 # 假设端口映射为 `8505:9501`，这里是根据docker run启动时指定的端口：

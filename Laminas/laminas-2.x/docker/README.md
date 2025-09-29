@@ -56,7 +56,7 @@ sudo systemctl restart php8.2-fpm
 sudo systemctl restart nginx
 ```
 
-### 访问项目
+访问项目：
 
 ```
 http://你的服务器IP或域名/
@@ -83,21 +83,21 @@ Docker 部署支持两种模式：
 
 > 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
 
-#### 启动命令
+启动命令：
 
 ```bash
 cd Laminas/laminas-2.x/docker
 docker-compose -f docker-compose.volume.yaml -p laminas2-volume up -d --build
 ```
 
-### 访问项目
+访问项目：
 
 ```
 # 假设端口映射为 `8750:80`，具体请查看`docker-compose.volume.yaml`：
 http://localhost:8750
 ```
 
-### 2. 整体打包镜像模式
+### 2. 镜像模式
 
 > 使用标准 Dockerfile 构建，镜像内包含完整代码，适合生产环境或快速部署。
 
@@ -110,7 +110,7 @@ cd Laminas/laminas-2.x/docker
 docker-compose -f docker-compose.yaml -p laminas2 up -d --build
 ```
 
-#### 访问项目
+访问项目：
 
 ```
 # 假设端口映射为 `8751:80`，具体请查看`docker-compose.yaml`：
@@ -140,7 +140,7 @@ docker run -d --name laminas2-run -p 8752:80 laminas2:run
 docker run -d --name laminas2-latest -p 8752:80 laminas2:latest
 ```
 
-#### 访问项目
+访问项目：
 
 ```
 # 假设端口映射为 `8752:80`，这里是根据docker run启动时指定的端口：
