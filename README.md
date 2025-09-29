@@ -34,7 +34,7 @@
 |Lumen    | 10.x                          | 已完成                 | [官网](https://lumen.laravel.com/) / [GitHub](https://github.com/laravel/lumen)                   |
 |Laminas(Zend Framework)    | 2.x          | 已完成     | [官网](https://getlaminas.org/)  / [GitHub](https://github.com/laminas/laminas-mvc-skeleton)                   |
 
-- 2019-04-18 Zend Framework 进入 Linux 基金会，重命名为 Laminas，更多详情请查看 [Zend Framework官网](https://framework.zend.com/)。
+- Laminas说明：2019-04-18 Zend Framework 进入 Linux 基金会，重命名为 Laminas，更多详情请查看 [Zend Framework官网](https://framework.zend.com/)。
 
 ## 适用对象
 
@@ -64,14 +64,13 @@
 
 ```bash
 git clone https://github.com/php-related/frameworks-docker.git
-cd frameworks-docker
 ```
 
 2. 选择框架与版本
 复制所需框架版本完整文件夹，包含源码和相关配置，例如：
 
 ```bash
-cp -r Laravel/laravel-12.x /your/workspace/
+cp -r frameworks-docker/Laravel/laravel-12.x /your/workspace/
 ```
 
 从远程仓库克隆项目到本地后，选择所需的框架版本，复制对应的完整版本文件夹（包含所有文件），该文件夹即为框架的完整源码。例如：Laravel/laravel-12.x。
@@ -91,12 +90,19 @@ cp -r Laravel/laravel-12.x /your/workspace/
 
 ```shell
 cd Laravel/laravel-12.0/docker
+```
 
 1. 开发调试（挂载模式）
+
+```shell
 docker-compose -f docker-compose.volume.yaml -p laravel12-volume up -d --build
+```
 
 2. 生产运行（镜像模式）（推荐）
+
+```shell
 docker-compose -f docker-compose.yaml -p laravel12 up -d --build
+
 ```
 
 - 挂载模式适用于本地开发与调试场景，实现代码与配置的热更新，便于实时修改并立即生效，从而提升开发效率和迭代速度。
