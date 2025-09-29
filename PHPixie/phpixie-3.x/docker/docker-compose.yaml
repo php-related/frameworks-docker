@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  phpixie3-app:
+    container_name: phpixie3
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: phpixie3
+    ports:
+      - "8691:80"
+    environment:
+      - APP_ENV=production
+    restart: unless-stopped

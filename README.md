@@ -29,6 +29,7 @@
 |Flight   | 3.x                          | 进行中                 | [官网](https://docs.flightphp.com/) / [GitHub](https://github.com/flightphp/core)                   |
 |Fuel   | 1.9                          | 进行中                 | [官网](https://fuelphp.com/) / [GitHub](https://github.com/fuel/fuelphp.com)                   |
 |Nette   | 3.x                          | 已完成                 | [官网](https://nette.org/) / [GitHub](https://github.com/nette/nette)                   |
+|PHPixie   | 3.x                          | 已完成                 | [官网](https://phpixie.com/) / [GitHub](https://github.com/phpixie/project)                   |
 
 ## 适用对象
 
