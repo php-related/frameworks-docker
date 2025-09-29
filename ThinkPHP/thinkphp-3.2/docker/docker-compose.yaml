@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  thinkphp3_2-app:
+    container_name: thinkphp3_2
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: thinkphp3_2
+    ports:
+      - "8114:80"
+    environment:
+      - APP_ENV=production
+    restart: unless-stopped
