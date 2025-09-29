@@ -97,9 +97,9 @@ docker-compose -f docker-compose.volume.yaml -p aura2-volume up -d --build
 访问项目
 
 ```
-# 假设端口映射为 `8700:80`，具体请查看`docker-compose.volume.yaml`：
 http://localhost:8700
 ```
+假设端口映射为 `8700:80`，具体请查看`docker-compose.volume.yaml`
 
 ### 2. 镜像模式
 
@@ -121,9 +121,9 @@ docker-compose -f docker-compose.yaml -p aura2 up -d --build
 访问项目
 
 ```
-# 假设端口映射为 `8701:80`，具体请查看`docker-compose.yaml`：
 http://localhost:8701
 ```
+假设端口映射为 `8701:80`，具体请查看`docker-compose.yaml
 
 #### 2.2 直接使用 docker run 启动
 
@@ -134,9 +134,9 @@ docker run -d --name aura2:latest -p 8702:80 aura2:latest
 访问项目
 
 ```
-# 假设端口映射为 `8702:80`，这里是根据docker run启动时指定的端口：
 http://localhost:8702
 ```
+假设端口映射为 `8702:80`，这里是根据docker run启动时指定的端口
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md
 
