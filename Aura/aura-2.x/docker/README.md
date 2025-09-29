@@ -10,13 +10,13 @@
 Aura/
   └── aura-2.x/
       ├── ../                               # 源代码
-      ├── nginx.conf                        # Nginx  配置
-      └── docker/                           # Docker 配置
-            ├── Dockerfile                  # 镜像模式 Dockerfile
-            ├── Dockerfile.volume           # 挂载模式 Dockerfile
+      ├── nginx.conf                        # nginx 配置
+      └── docker/                           # docker配置
+            ├── Dockerfile                  # 镜像模式 dockerfile
+            ├── Dockerfile.volume           # 挂载模式 dockerfile
             ├── docker-compose.yml          # 镜像模式启动配置
             ├── docker-compose.volume.yml   # 挂载模式启动配置
-            └── README.md         
+            └── README.md                   # 部署说明文档
 ```
 ---
 
