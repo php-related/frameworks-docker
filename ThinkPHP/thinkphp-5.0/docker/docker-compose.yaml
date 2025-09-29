@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  thinkphp5_0-app:
+    container_name: thinkphp5_0
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: thinkphp5_0
+    ports:
+      - "8111:80"
+    environment:
+      - APP_ENV=production
+    restart: unless-stopped
