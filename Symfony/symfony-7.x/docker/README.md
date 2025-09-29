@@ -6,29 +6,99 @@
 - Docker 部署（支持开发挂载卷和整体打包两种模式）
 
 ## 目录结构
-
 ```text
 Symfony/
   └── symfony-7.x/
-      ├── ../                              # 官方原始源码
-      ├── nginx.conf                       # 原生环境部署 Nginx 配置
-      └── docker/                          # docker相关配置
-            ├──Dockerfile                  # Dockerfile 打包模式Dockerfile
-            ├──Dockerfile.volume           # Dockerfile 挂载模式Dockerfile
-            ├──docker-compose.yml          # 打包模式基础配置
-            ├──docker-compose.override.yml # 挂载模式配置，自动被 docker-compose 读取并覆盖
-            └──README.md                   # 当前版本的部署与适配说明
+      ├── ../                               # 源代码
+      ├── nginx.conf                        # nginx 配置
+      └── docker/                           # docker配置
+            ├── Dockerfile                  # 镜像模式 dockerfile
+            ├── Dockerfile.volume           # 挂载模式 dockerfile
+            ├── docker-compose.yml          # 镜像模式启动配置
+            ├── docker-compose.volume.yml   # 挂载模式启动配置
+            └── README.md                   # 部署说明文档
 ```
 
 ---
 
-## 一、源码与传统部署（nginx + php-fpm）
+## 一、Docker 部署
+
+### 环境准备
+
+- 已安装 [Docker](https://docs.docker.com/get-docker/)
+- 已安装 [docker-compose](https://docs.docker.com/compose/install/)
+- 推荐使用 Linux 或 WSL2 等高性能本地开发环境
+
+适合希望使用容器技术快速启动和环境隔离的用户。
+
+Docker 部署支持两种模式：
+
+- 挂载模式：代码与宿主机同步，适合开发调试
+- 镜像模式：镜像内包含代码，适合生产或快速测试
+
+### 1. 挂载模式
+
+> 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
+
+启动容器：
+```bash
+docker-compose -f /symfony-7.x/docker/docker-compose.volume.yaml -p symfony7-volume up -d --build
+```
+
+访问项目：
+```
+http://localhost:8400
+```
+假设端口映射为 `8400:80`，具体请查看`docker-compose.volume.yaml`
+
+### 2. 镜像模式
+
+> 使用标准 Dockerfile 构建，镜像内包含完整代码，适合生产环境或快速部署。
+
+#### 2.1 使用 docker-compose 启动
+
+启动容器：
+```bash
+docker-compose -f /symfony-7.x/docker/docker-compose.yaml -p symfony7 up -d --build
+```
+
+访问项目：
+```
+http://localhost:8401
+```
+假设端口映射为 `8401:80`，具体请查看`docker-compose.yaml`
+
+#### 2.2 直接使用 docker run 启动
+
+构建镜像：
+```bash
+docker build -f /symfony-7.x/docker/Dockerfile -t symfony7:run /symfony-7.x/docker
+```
+
+启动容器：
+```bash
+docker run -d --name symfony7-run -p 8402:80 symfony7:run
+```
+
+或者使用镜像模式产生镜像：（`symfony7:latest`），具体请查看`docker-compose.yaml`。
+
+```bash
+docker run -d --name symfony7-latest -p 8402:80 symfony7:latest
+```
+
+访问项目：
+```
+http://localhost:8402
+```
+假设端口映射为 `8402:80`，这里是根据docker run启动时指定的端口
+
+## 二、源码与传统部署（nginx + php-fpm）
 
 适合习惯使用传统 LEMP 环境的用户，直接运行源码，无需 Docker。
 
 ### 1. 环境准备
 
-- PHP>=8.2，包含 php-fpm 服务
+- PHP = 8.2，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
 - 项目源码放置目录，例如 `/var/www/symfony-7.x`
@@ -40,7 +110,6 @@ Symfony/
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
-
 ```bash
 sudo chown -R www-data:www-data /var/www/symfony-7.x
 sudo find /var/www/symfony-7.x -type f -exec chmod 644 {} \;
@@ -50,102 +119,16 @@ sudo find /var/www/symfony-7.x -type d -exec chmod 755 {} \;
 ### 4. 重启服务并访问
 
 重启 php-fpm 与 nginx：
-
 ```bash
 sudo systemctl restart php8.2-fpm
 sudo systemctl restart nginx
 ```
 
 访问项目：
-
 ```
 http://你的服务器IP或域名/
 ```
-
 ---
-
-## 二、Docker 部署
-
-适合希望使用容器技术快速启动和环境隔离的用户。
-
-Docker 部署支持两种模式：
-
-- 挂载卷开发模式：代码与宿主机同步，适合开发调试
-- 整体打包镜像模式：镜像内包含代码，适合生产或快速测试
-
-### 环境准备
-
-- 已安装 [Docker](https://docs.docker.com/get-docker/)
-- 已安装 [docker-compose](https://docs.docker.com/compose/install/)
-- 推荐使用 Linux 或 WSL2 等高性能本地开发环境
-
-### 1. 挂载卷开发模式
-
-> 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
-
-启动命令：
-
-```bash
-cd Symfony/symfony-7.x/docker
-docker-compose -f docker-compose.volume.yaml -p symfony7-volume up -d --build
-```
-
-访问项目：
-
-```
-# 假设端口映射为 `8400:80`，具体请查看`docker-compose.volume.yaml`：
-http://localhost:8400
-```
-
-### 2. 镜像模式
-
-> 使用标准 Dockerfile 构建，镜像内包含完整代码，适合生产环境或快速部署。
-
-#### 2.1 使用 docker-compose 启动
-
-启动命令：
-
-```bash
-cd Symfony/symfony-7.x/docker
-docker-compose -f docker-compose.yaml -p symfony7 up -d --build
-```
-
-访问项目：
-
-```
-# 假设端口映射为 `8401:80`，具体请查看`docker-compose.yaml`：
-http://localhost:8401
-```
-
-#### 2.2 直接使用 docker run 启动
-
-构建镜像：
-
-```bash
-cd Symfony/symfony-7.x
-docker build -f docker/Dockerfile -t symfony7:run .
-```
-
-启动容器：
-
-```bash
-docker run -d --name symfony7-run -p 8402:80 symfony7:run
-```
-
-或者使用整体打包模式产生的镜像：整体打包时生成的镜像（`symfony7:latest`），具体请查看`docker-compose.yaml`
-
-启动容器（前提是存在symfony7:latest镜像）：
-
-```bash
-docker run -d --name symfony7-latest -p 8402:80 symfony7:latest
-```
-
-访问项目：
-
-```
-# 假设端口映射为 `8402:80`，这里是根据docker run启动时指定的端口：
-http://localhost:8402
-```
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md
 

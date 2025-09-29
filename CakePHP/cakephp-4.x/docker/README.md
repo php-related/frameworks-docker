@@ -72,7 +72,7 @@ http://localhost:8454
 
 构建镜像：
 ```bash
-docker build -f /cakephp-4.x/docker/Dockerfile -t cakephp4:run .
+docker build -f /cakephp-4.x/docker/Dockerfile -t cakephp4:run /cakephp-4.x/docker
 ```
 
 启动容器：

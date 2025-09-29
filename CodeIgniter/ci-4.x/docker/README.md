@@ -21,7 +21,7 @@ CodeIgniter/
 ```
 ---
 
-## 二、Docker 部署
+## 一、Docker 部署
 
 ### 环境准备
 
@@ -72,7 +72,7 @@ http://localhost:8301
 
 构建镜像：
 ```bash
-docker build -f /ci-4.x/docker/Dockerfile -t ci4:run .
+docker build -f /ci-4.x/docker/Dockerfile -t ci4:run /ci-4.x/docker
 ```
 
 启动容器：

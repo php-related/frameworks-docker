@@ -73,7 +73,7 @@ http://localhost:8451
 
 构建镜像：
 ```bash
-docker build -f /cakephp-5.x/docker/Dockerfile -t cakephp5:run .
+docker build -f /cakephp-5.x/docker/Dockerfile -t cakephp5:run /cakephp-5.x/docker
 ```
 
 启动容器：

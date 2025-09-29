@@ -73,7 +73,7 @@ http://localhost:8304
 
 构建镜像：
 ```bash
-docker build -f /ci-3.x/docker/Dockerfile -t ci3:run .
+docker build -f /ci-3.x/docker/Dockerfile -t ci3:run /ci-3.x/docker
 ```
 
 启动容器：
@@ -93,7 +93,7 @@ http://localhost:8305
 ```
 假设端口映射为 `8305:80`，这里是根据docker run启动时指定的端口
 
-## 一、源码与传统部署（nginx + php-fpm）
+## 二、源码与传统部署（nginx + php-fpm）
 
 适合习惯使用传统 LEMP 环境的用户，直接运行源码，无需 Docker。
 

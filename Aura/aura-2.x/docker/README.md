@@ -56,8 +56,7 @@ http://localhost:8700
 
 #### 2.1 使用 docker-compose 启动
 
-启动命令：
-```bash
+启动命令：```bash
 docker-compose -f /aura-2.x/docker/docker-compose.yaml -p aura2 up -d --build
 ```
 
@@ -71,7 +70,7 @@ http://localhost:8701
 
 构建镜像：
 ```bash
-docker build -f /aura-2.x/docker/Dockerfile -t aura2:run .
+docker build -f /aura-2.x/docker/Dockerfile -t aura2:run /aura-2.x/docker
 ```
 
 启动容器：
@@ -100,7 +99,7 @@ http://localhost:8702
 
 ### 1. 环境准备
 
-- PHP=7.3+，包含 php-fpm 服务
+- PHP = 7.3，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
 - 项目源码放置目录，例如 `/var/www/aura-2.x`
