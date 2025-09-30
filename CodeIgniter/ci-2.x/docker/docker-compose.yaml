@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  ci2-app:
+    container_name: ci2
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: ci2
+    ports:
+      - "8307:80"
+    environment:
+      - APP_ENV=production
+    restart: unless-stopped

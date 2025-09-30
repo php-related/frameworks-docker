@@ -193,6 +193,28 @@ Yii/yii-2.x/tmp/
 ############################################################################
 
 ###########################################################################
+# Ci2.x
+################################Ci2.x#################################
+CodeIgniter/ci-2.x/user_guide/
+# composer 依赖
+CodeIgniter/ci-2.x/vendor/
+CodeIgniter/ci-2.x/tests/
+CodeIgniter/ci-2.x/application/logs/*
+CodeIgniter/ci-2.x/application/cache/*
+############################################################################
+
+###########################################################################
+# Ci3.x
+################################Ci3.x#################################
+CodeIgniter/ci-3.x/user_guide/
+# composer 依赖
+CodeIgniter/ci-3.x/vendor/
+CodeIgniter/ci-3.x/tests/
+CodeIgniter/ci-3.x/application/logs/*
+CodeIgniter/ci-3.x/application/cache/*
+############################################################################
+
+###########################################################################
 # Ci4.x
 ################################Ci4.x#################################
 CodeIgniter/ci-4.x/runtime/*
@@ -203,18 +225,7 @@ CodeIgniter/ci-4.x/writeable/cache/*
 CodeIgniter/ci-4.x/writeable/logs/*
 CodeIgniter/ci-4.x/writeable/sessions/*
 CodeIgniter/ci-4.x/writeable/debugbar/*
-Symfony/symfony-7.x/.env
-############################################################################
-
-###########################################################################
-# Ci3.x
-################################Ci3.x#################################
-CodeIgniter/ci-3.x/runtime/*
-# composer 依赖
-CodeIgniter/ci-3.x/vendor/
-CodeIgniter/ci-3.x/tests/
-CodeIgniter/ci-3.x/application/logs/*
-CodeIgniter/ci-3.x/application/cache/*
+CodeIgniter/ci-4.x/user_guide/
 ############################################################################
 
 ###########################################################################
