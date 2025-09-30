@@ -80,7 +80,7 @@ http://localhost:8063
 构建镜像：
 
 ```bash
-docker build -f /laravel-4.2/docker/Dockerfile -t laravel4_2:run /laravel-4.2/docker
+docker build -f ./laravel-4.2/docker/Dockerfile -t laravel4_2:run /laravel-4.2/docker
 ```
 
 启动容器：

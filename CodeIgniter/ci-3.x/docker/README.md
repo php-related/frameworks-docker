@@ -42,14 +42,17 @@ Docker 部署支持两种模式：
 > 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
 
 启动命令：
+
 ```bash
-docker-compose -f /ci-3.x/docker/docker-compose.volume.yaml -p ci3-volume up -d --build
+docker-compose -f ./ci-3.x/docker/docker-compose.volume.yaml -p ci3-volume up -d --build
 ```
 
 访问项目：
+
 ```
 http://localhost:8303
 ```
+
 假设端口映射为 `8303:80`，具体请查看`docker-compose.volume.yaml`
 
 ### 2. 镜像模式
@@ -59,24 +62,29 @@ http://localhost:8303
 #### 2.1 使用 docker-compose 启动
 
 启动命令：
+
 ```bash
-docker-compose -f /ci-3.x/docker/docker-compose.yaml -p ci3 up -d --build
+docker-compose -f ./ci-3.x/docker/docker-compose.yaml -p ci3 up -d --build
 ```
 
 访问项目：
+
 ```
 http://localhost:8304
 ```
+
 假设端口映射为 `8304:80`，具体请查看`docker-compose.yaml`
 
 #### 2.2 直接使用 docker run 启动
 
 构建镜像：
+
 ```bash
-docker build -f /ci-3.x/docker/Dockerfile -t ci3:run /ci-3.x/docker
+docker build -f ./ci-3.x/docker/Dockerfile -t ci3:run /ci-3.x/docker
 ```
 
 启动容器：
+
 ```bash
 docker run -d --name ci3-run -p 8305:80 ci3:run
 ```
@@ -88,9 +96,11 @@ docker run -d --name ci3-latest -p 8305:80 ci3:latest
 ```
 
 访问项目：
+
 ```
 http://localhost:8305
 ```
+
 假设端口映射为 `8305:80`，这里是根据docker run启动时指定的端口
 
 ## 二、源码与传统部署（nginx + php-fpm）
@@ -111,6 +121,7 @@ http://localhost:8305
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
+
 ```bash
 sudo chown -R www-data:www-data /var/www/ci-3.x
 sudo find /var/www/ci-3.x -type f -exec chmod 644 {} \;
@@ -120,12 +131,14 @@ sudo find /var/www/ci-3.x -type d -exec chmod 755 {} \;
 ### 4. 重启服务并访问
 
 重启 php-fpm 与 nginx：
+
 ```bash
 sudo systemctl restart php7.3-fpm
 sudo systemctl restart nginx
 ```
 
 访问项目：
+
 ```
 http://你的服务器IP或域名/
 ```

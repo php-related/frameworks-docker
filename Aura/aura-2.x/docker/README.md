@@ -6,6 +6,7 @@
 - 传统部署（nginx + php-fpm）
 
 ## 目录结构
+
 ```text
 Aura/
   └── aura-2.x/
@@ -18,6 +19,7 @@ Aura/
             ├── docker-compose.volume.yml   # 挂载模式启动配置
             └── README.md                   # 部署说明文档
 ```
+
 ---
 
 ## 一、Docker 部署
@@ -40,14 +42,17 @@ Docker 部署支持两种模式：
 > 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
 
 启动命令:
+
 ```bash
-docker-compose -f /aura-2.x/docker/docker-compose.volume.yaml -p aura2-volume up -d --build
+docker-compose -f ./aura-2.x/docker/docker-compose.volume.yaml -p aura2-volume up -d --build
 ```
 
 访问项目:
+
 ```
 http://localhost:8700
 ```
+
 假设端口映射为 `8700:80`，具体请查看`docker-compose.volume.yaml`
 
 ### 2. 镜像模式
@@ -57,12 +62,15 @@ http://localhost:8700
 #### 2.1 使用 docker-compose 启动
 
 启动命令：```bash
-docker-compose -f /aura-2.x/docker/docker-compose.yaml -p aura2 up -d --build
+docker-compose -f ./aura-2.x/docker/docker-compose.yaml -p aura2 up -d --build
+
 ```
 
 访问项目：
 ```
-http://localhost:8701
+
+<http://localhost:8701>
+
 ```
 假设端口映射为 `8701:80`，具体请查看`docker-compose.yaml
 
@@ -70,10 +78,11 @@ http://localhost:8701
 
 构建镜像：
 ```bash
-docker build -f /aura-2.x/docker/Dockerfile -t aura2:run /aura-2.x/docker
+docker build -f ./aura-2.x/docker/Dockerfile -t aura2:run /aura-2.x/docker
 ```
 
 启动容器：
+
 ```bash
 docker run -d --name aura2-run -p 8455:80 aura2:run
 ```
@@ -85,6 +94,7 @@ docker run -d --name aura2-latest -p 8702:80 aura2:latest
 ```
 
 访问项目：
+
 ```
 http://localhost:8702
 ```
@@ -111,6 +121,7 @@ http://localhost:8702
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
+
 ```bash
 sudo chown -R www-data:www-data /var/www/aura-2.x
 sudo find /var/www/aura-2.x -type f -exec chmod 644 {} \;
@@ -120,15 +131,18 @@ sudo find /var/www/aura-2.x -type d -exec chmod 755 {} \;
 ### 4. 重启服务并访问
 
 重启 php-fpm 与 nginx：
+
 ```bash
 sudo systemctl restart php7.3-fpm
 sudo systemctl restart nginx
 ```
 
 访问项目:
+
 ```
 http://你的服务器IP或域名/
 ```
+
 ---
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md

@@ -52,12 +52,11 @@ nbproject/*
 yarn-debug.log
 yarn-error.log
 
-.github/
-tests/
-tmp/*
-logs/*
-
-
 supervisord
 supervisord.log
 supervisord.pid
+.github/
+tmp/*
+logs/*
+tests/
+vendor/

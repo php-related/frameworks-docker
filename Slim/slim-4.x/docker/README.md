@@ -42,14 +42,17 @@ Docker 部署支持两种模式：
 > 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
 
 启动容器：
+
 ```bash
-docker-compose -f /slim-4.x/docker/docker-compose.volume.yaml -p slim4-volume up -d --build
+docker-compose -f ./slim-4.x/docker/docker-compose.volume.yaml -p slim4-volume up -d --build
 ```
 
 访问项目：
+
 ```
 http://localhost:8600
 ```
+
 假设端口映射为 `8600:80`，具体请查看`docker-compose.volume.yaml
 
 ### 2. 镜像模式
@@ -59,24 +62,29 @@ http://localhost:8600
 #### 2.1 使用 docker-compose 启动
 
 启动容器：
+
 ```bash
-docker-compose -f /slim-4.x/docker/docker-compose.yaml -p slim4 up -d --build
+docker-compose -f ./slim-4.x/docker/docker-compose.yaml -p slim4 up -d --build
 ```
 
 访问项目：
+
 ```
 http://localhost:8601
 ```
+
 假设端口映射为 `8601:80`，具体请查看`docker-compose.yaml`
 
 #### 2.2 直接使用 docker run 启动
 
 构建镜像：
+
 ```bash
-docker build -f /slim-4.x/docker/Dockerfile -t slim4:run /slim-4.x/docker
+docker build -f ./slim-4.x/docker/Dockerfile -t slim4:run /slim-4.x/docker
 ```
 
 启动容器：
+
 ```bash
 docker run -d --name slim4-run -p 8602:80 slim4:run
 ```
@@ -88,9 +96,11 @@ docker run -d --name slim4-latest -p 8602:80 slim4:latest
 ```
 
 访问项目：
+
 ```
 http://localhost:8602
 ```
+
 假设端口映射为 `8602:80`，这里是根据docker run启动时指定的端口
 
 ## 二、源码与传统部署（nginx + php-fpm）
@@ -111,6 +121,7 @@ http://localhost:8602
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
+
 ```bash
 sudo chown -R www-data:www-data /var/www/slim-4.x
 sudo find /var/www/slim-4.x -type f -exec chmod 644 {} \;
@@ -120,15 +131,18 @@ sudo find /var/www/slim-4.x -type d -exec chmod 755 {} \;
 ### 4. 重启服务并访问
 
 重启 php-fpm 与 nginx：
+
 ```bash
 sudo systemctl restart php8.0-fpm
 sudo systemctl restart nginx
 ```
 
 访问项目：
+
 ```
 http://你的服务器IP或域名/
 ```
+
 ---
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md

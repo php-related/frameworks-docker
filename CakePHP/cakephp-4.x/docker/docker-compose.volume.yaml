@@ -23,7 +23,7 @@ services:
       if [ ! -d /app/tmp ]; then mkdir -p /app/tmp; fi && \
       chmod 1777 /app/tmp && \
       COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader --no-interaction && \
-      chown -R www-data:www-data /app/tmp /app/logs; \
-      chmod -R 775 /app/tmp /app/logs; \
+      chown -R /app/tmp /app/logs /app/webroot; \
+      chmod -R 775 /app/tmp /app/logs /app/webroot; \
       /usr/bin/supervisord -c /etc/supervisord.conf
       "

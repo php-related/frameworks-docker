@@ -41,12 +41,14 @@ Docker 部署支持两种模式：
 > 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
 
 启动容器：
+
 ```bash
 cd Hyperf-f  /hyperf-3.x/docker/docker-compose
 docker-compose -f  /hyperf-3.x/docker/docker-compose.volume.yaml -p hyperf3-volume up -d --build
 ```
 
 访问项目：
+
 ```
 # 假设端口映射为 `8500:9501`，具体请查看`docker-compose.volume.yaml`：
 http://localhost:8500
@@ -59,24 +61,29 @@ http://localhost:8500
 #### 2.1 使用 docker-compose 启动
 
 启动容器：
+
 ```bash
 docker-compose -f  /hyperf-3.x/docker/docker-compose.yaml -p hyperf3 up -d --build
 ```
 
 访问项目：
+
 ```
 http://localhost:8501
 ```
+
 假设端口映射为 `8501:9501`，具体请查看`docker-compose.yaml`
 
 #### 2.2 直接使用 docker run 启动
 
 构建镜像：
+
 ```bash
-docker build -f /hyperf-3.x/docker/Dockerfile -t hyperf3:run /hyperf-3.x/docker
+docker build -f ./hyperf-3.x/docker/Dockerfile -t hyperf3:run /hyperf-3.x/docker
 ```
 
 启动容器：
+
 ```bash
 docker run -d --name hyperf3-run -p 8502:9501 hyperf3:run
 ```
@@ -88,9 +95,11 @@ docker run -d --name hyperf3-latest -p 8502:9501 hyperf3:latest
 ```
 
 访问项目：
+
 ```
 http://localhost:8502
 ```
+
 假设端口映射为 `8502:9501`，这里是根据docker run启动时指定的端口
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md
