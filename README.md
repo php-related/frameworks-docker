@@ -82,7 +82,7 @@ cp -r frameworks-docker/Laravel/laravel-12.x /your/workspace/
 ### 一、Docker 一键部署（推荐）
 
 **特别说明**
-请参考各框架对应版本的详细部署说明，文档位置位于 `<framework>/<version></version>/docker/README.md`，其中包含完整且具体的安装与配置指导，方便您快速上手使用。
+请参考各框架对应版本的详细部署说明，文档位置位于 `<framework>/<version>/docker/README.md`，其中包含完整且具体的安装与配置指导，方便您快速上手使用。如:`/frameworks-docker/Webman/webman-2.1/docker/README.md`
 
 ### 环境准备
 
