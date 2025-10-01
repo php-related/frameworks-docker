@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  hyperf1-skeleton-volume:
+    container_name: hyperf1-skeleton-volume
+    image: hyperf1-skeleton-volume
+    working_dir: /app
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.volume
+    volumes:
+      - ../:/app:delegated   # 这里改为项目根目录
+      - hyperf_vendor:/app/vendor  # 使用具名卷
+    ports:
+      - 8506:9501
+    environment:
+      - APP_ENV=dev
+      - SCAN_CACHEABLE=false
+    # command: ["php", "bin/hyperf.php", "start"]
+    restart: unless-stopped
+
+networks:
+  default:
+    name: hyperf1-skeleton-volume
+volumes:
+  hyperf_vendor:
