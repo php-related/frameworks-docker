@@ -85,13 +85,13 @@ docker build -f ./hyperf-1.x/docker/Dockerfile -t hyperf1:run /hyperf-1.x/docker
 启动容器：
 
 ```bash
-docker run -d --name hyperf1-run -p 8505:9501 hyperf1:run
+docker run -d --name hyperf1-run -p 8508:9501 hyperf1:run
 ```
 
 或者使用镜像模式产生镜像：（`hyperf1:latest`），具体请查看`docker-compose.yaml`。
 
 ```bash
-docker run -d --name hyperf1-latest -p 8505:9501 hyperf1:latest
+docker run -d --name hyperf1-latest -p 8508:9501 hyperf1:latest
 ```
 
 访问项目：
