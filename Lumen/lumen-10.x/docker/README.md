@@ -42,14 +42,17 @@ Docker 部署支持两种模式：
 > 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
 
 启动容器：
+
 ```bash
-docker-compose -f /lumen-10.x/docker/docker-compose.volume.yaml -p lumen10-volume up -d --build
+docker-compose -f ./lumen-10.x/docker/docker-compose.volume.yaml -p lumen10-volume up -d --build
 ```
 
 访问项目：
+
 ```
 http://localhost:8800
 ```
+
 假设端口映射为 `8800:80`，具体请查看`docker-compose.volume.yaml`
 
 ### 2. 镜像模式
@@ -59,37 +62,45 @@ http://localhost:8800
 #### 2.1 使用 docker-compose 启动
 
 启动容器：
+
 ```bash
-docker-compose -f /lumen-10.x/docker/docker-compose.yaml -p lumen10 up -d --build
+docker-compose -f ./lumen-10.x/docker/docker-compose.yaml -p lumen10 up -d --build
 ```
 
 访问项目：
+
 ```
 http://localhost:8801
 ```
+
 假设端口映射为 `8801:80`，具体请查看`docker-compose.yaml`
 
 #### 2.2 直接使用 docker run 启动
 
 构建镜像：
+
 ```bash
-docker build -f /lumen-10.x/docker/Dockerfile -t lumen10:run /lumen-10.x/docker
+docker build -f ./lumen-10.x/docker/Dockerfile -t lumen10:run /lumen-10.x/docker
 ```
 
 启动容器：
+
 ```bash
 docker run -d --name lumen10-run -p 8802:80 lumen10:run
 ```
 
 或者使用镜像模式产生镜像：（`lumen10:latest`），具体请查看`docker-compose.yaml`。
+
 ```bash
 docker run -d --name lumen10-latest -p 8802:80 lumen10:latest
 ```
 
 访问项目：
+
 ```
 http://localhost:8076
 ```
+
 假设端口映射为 `8802:80`，这里是根据docker run启动时指定的端口
 
 ## 二、源码与传统部署（nginx + php-fpm）
@@ -110,6 +121,7 @@ http://localhost:8076
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
+
 ```bash
 sudo chown -R www-data:www-data /var/www/lumen-10.x
 sudo find /var/www/lumen-10.x -type f -exec chmod 644 {} \;
@@ -119,15 +131,18 @@ sudo find /var/www/lumen-10.x -type d -exec chmod 755 {} \;
 ### 4. 重启服务并访问
 
 重启 php-fpm 与 nginx：
+
 ```bash
 sudo systemctl restart php8.2-fpm
 sudo systemctl restart nginx
 ```
 
 访问项目：
+
 ```
 http://你的服务器IP或域名/
 ```
+
 ---
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md

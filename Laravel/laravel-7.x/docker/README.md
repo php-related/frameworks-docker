@@ -42,14 +42,17 @@ Docker 部署支持两种模式：
 > 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
 
 启动容器：
+
 ```bash
-docker-compose -f /laravel-7.x/docker/docker-compose.volume.yaml -p laravel7-volume up -d --build
+docker-compose -f ./laravel-7.x/docker/docker-compose.volume.yaml -p laravel7-volume up -d --build
 ```
 
 访问项目：
+
 ```
 http://localhost:8065
 ```
+
 假设端口映射为 `8065:80`，具体请查看`docker-compose.volume.yaml`
 
 ### 2. 镜像模式
@@ -59,24 +62,29 @@ http://localhost:8065
 #### 2.1 使用 docker-compose 启动
 
 启动容器：
+
 ```bash
-docker-compose -f /laravel-7.x/docker/docker-compose.yaml -p laravel7 up -d --build
+docker-compose -f ./laravel-7.x/docker/docker-compose.yaml -p laravel7 up -d --build
 ```
 
 访问项目：
+
 ```
 http://localhost:8066
 ```
+
 假设端口映射为 `8066:80`，具体请查看`docker-compose.yaml`
 
 #### 2.2 直接使用 docker run 启动
 
 构建镜像：
+
 ```bash
-docker build -f /laravel-7.x/docker/Dockerfile -t laravel7:run /laravel-7.x/docker
+docker build -f ./laravel-7.x/docker/Dockerfile -t laravel7:run /laravel-7.x/docker
 ```
 
 启动容器：
+
 ```bash
 docker run -d --name laravel7-run -p 8067:80 laravel7:run
 ```
@@ -88,9 +96,11 @@ docker run -d --name laravel7-latest -p 8067:80 laravel7:latest
 ```
 
 访问项目：
+
 ```
 http://localhost:8067
 ```
+
 假设端口映射为 `8067:80`，这里是根据docker run启动时指定的端口
 
 ## 二、源码与传统部署（nginx + php-fpm）
@@ -111,6 +121,7 @@ http://localhost:8067
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
+
 ```bash
 sudo chown -R www-data:www-data /var/www/laravel-7.x
 sudo find /var/www/laravel-7.x -type f -exec chmod 644 {} \;
@@ -120,15 +131,18 @@ sudo find /var/www/laravel-7.x -type d -exec chmod 755 {} \;
 ### 4. 重启服务并访问
 
 重启 php-fpm 与 nginx：
+
 ```bash
 sudo systemctl restart php7.3-fpm
 sudo systemctl restart nginx
 ```
 
 访问项目：
+
 ```
 http://你的服务器IP或域名/
 ```
+
 ---
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md

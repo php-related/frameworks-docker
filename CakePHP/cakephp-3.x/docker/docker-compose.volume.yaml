@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  cakephp3-app:
+    container_name: cakephp3-volume
+    build:
+      context: .
+      dockerfile: Dockerfile.volume
+    image: cakephp3:volume
+    ports:
+      - "8460:80"
+    volumes:
+      - ../:/app           # 挂载本地 app 代码，方便调试
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./supervisord.conf:/etc/supervisord.conf:ro
+      - ./www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai     # 设置时区，可根据需要修改
+    tty: true
+    command: >
+      /bin/sh -c "
+      mkdir -p /tmp && chmod 1777 /tmp && \
+      if [ ! -d /app/tmp ]; then mkdir -p /app/tmp; fi && \
+      chmod 1777 /app/tmp && \
+      COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader --no-interaction && \
+      chown -R /app/tmp /app/logs /app/webroot; \
+      chmod -R 775 /app/tmp /app/logs /app/webroot; \
+      /usr/bin/supervisord -c /etc/supervisord.conf
+      "

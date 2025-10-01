@@ -42,14 +42,17 @@ Docker 部署支持两种模式：
 > 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
 
 启动容器：
+
 ```bash
-docker-compose -f /thinkphp-5.0/docker/docker-compose.volume.yaml -p thinkphp5_0-volume up -d --build
+docker-compose -f ./thinkphp-5.0/docker/docker-compose.volume.yaml -p thinkphp5_0-volume up -d --build
 ```
 
 访问项目：
+
 ```
 http://localhost:8110
 ```
+
 假设端口映射为 `8110:80`，具体请查看`docker-compose.volume.yaml`
 
 ### 2. 镜像模式
@@ -59,24 +62,29 @@ http://localhost:8110
 #### 2.1 使用 docker-compose 启动
 
 启动容器：
+
 ```bash
-docker-compose -f /thinkphp-5.0/docker/docker-compose.yaml -p thinkphp5_0 up -d --build
+docker-compose -f ./thinkphp-5.0/docker/docker-compose.yaml -p thinkphp5_0 up -d --build
 ```
 
 访问项目：
+
 ```
 http://localhost:8111
 ```
+
 假设端口映射为 `8111:80`，具体请查看`docker-compose.yaml`
 
 #### 2.2 直接使用 docker run 启动
 
 构建镜像：
+
 ```bash
-docker build -f /thinkphp-5.0/docker/Dockerfile -t thinkphp5_0:run /thinkphp-5.0/docker
+docker build -f ./thinkphp-5.0/docker/Dockerfile -t thinkphp5_0:run /thinkphp-5.0/docker
 ```
 
 启动容器：
+
 ```bash
 docker run -d --name thinkphp5_0-run -p 8112:80 thinkphp5_0:run
 ```
@@ -88,9 +96,11 @@ docker run -d --name thinkphp5_0-latest -p 8112:80 thinkphp5_0:latest
 ```
 
 访问项目：
+
 ```
 http://localhost:8112
 ```
+
 假设端口映射为 `8112:80`，这里是根据docker run启动时指定的端口
 
 ## 二、源码与传统部署（nginx + php-fpm）
@@ -111,6 +121,7 @@ http://localhost:8112
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
+
 ```bash
 sudo chown -R www-data:www-data /var/www/thinkphp-5.0
 sudo find /var/www/thinkphp-5.0 -type f -exec chmod 644 {} \;
@@ -120,15 +131,18 @@ sudo find /var/www/thinkphp-5.0 -type d -exec chmod 755 {} \;
 ### 4. 重启服务并访问
 
 重启 php-fpm 与 nginx：
+
 ```bash
 sudo systemctl restart php7.3-fpm
 sudo systemctl restart nginx
 ```
 
 访问项目：
+
 ```
 http://你的服务器IP或域名/
 ```
+
 ---
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md

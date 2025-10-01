@@ -6,6 +6,7 @@
 - Docker 部署（支持开发挂载卷和整体打包两种模式）
 
 ## 目录结构
+
 ```text
 Webman/
   └── webman-2.x/
@@ -40,14 +41,17 @@ Docker 部署支持两种模式：
 > 使用 `docker-compose.volume.yaml` 配置，宿主机代码实时映射到容器。
 
 启动容器：
+
 ```bash
-docker-compose -f /webman-2.x/docker/docker-compose.volume.yaml -p webman2_1-volume up -d --build
+docker-compose -f ./webman-2.x/docker/docker-compose.volume.yaml -p webman2_1-volume up -d --build
 ```
 
 访问项目：
+
 ```
 http://localhost:8056
 ```
+
 假设端口映射为 `8056:8056`，具体请查看`docker-compose.volume.yaml`
 
 ### 2. 镜像模式
@@ -57,24 +61,29 @@ http://localhost:8056
 #### 2.1 使用 docker-compose 启动
 
 启动容器：
+
 ```bash
-docker-compose -f /webman-2.x/docker/docker-compose.yaml -p webman2_1 up -d --build
+docker-compose -f ./webman-2.x/docker/docker-compose.yaml -p webman2_1 up -d --build
 ```
 
 访问项目：
+
 ```
 http://localhost:8057
 ```
+
 假设端口映射为 `8057:8056`，具体请查看`docker-compose.yaml
 
 #### 2.2 直接使用 docker run 启动
 
 构建镜像：
+
 ```bash
-docker build -f /webman-2.x/docker/docker/Dockerfile -t webman2_1:run /webman-2.x/docker
+docker build -f ./webman-2.x/docker/docker/Dockerfile -t webman2_1:run /webman-2.x/docker
 ```
 
 启动容器：
+
 ```bash
 docker run -d --name webman2_1-run -p 8058:8056 webman2_1:run
 ```
@@ -86,9 +95,11 @@ docker run -d --name webman2_1-latest -p 8058:8056 webman2_1:latest
 ```
 
 访问项目：
+
 ```
 http://localhost:8058
 ```
+
 假设端口映射为 `8058:8056`，这里是根据docker run启动时指定的端口
 
 #### 其它更多相关的docker、docker-compose命令请参考项目根目录README.md
