@@ -43,7 +43,7 @@ Docker 部署支持两种模式：
 
 启动命令：
 ```bash
-docker-compose -f  /flight-3.x/docker/docker-compose.volume.yaml -p flight3-volume up -d --build
+docker-compose -f ./flight-3.x/docker/docker-compose.volume.yaml -p flight3-volume up -d --build
 ```
 
 访问项目：
@@ -60,7 +60,7 @@ http://localhost:8680
 
 启动命令：
 ```bash
-docker-compose -f  /flight-3.x/docker/docker-compose.yaml -p flight3 up -d --build
+docker-compose -f ./flight-3.x/docker/docker-compose.yaml -p flight3 up -d --build
 ```
 
 访问项目：

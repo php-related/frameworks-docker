@@ -44,7 +44,7 @@ Docker 部署支持两种模式：
 
 ```bash
 cd Hyperf-f  /hyperf-3.x/docker/docker-compose
-docker-compose -f  /hyperf-3.x/docker/docker-compose.volume.yaml -p hyperf3-volume up -d --build
+docker-compose -f ./hyperf-3.x/docker/docker-compose.volume.yaml -p hyperf3-volume up -d --build
 ```
 
 访问项目：
@@ -63,7 +63,7 @@ http://localhost:8500
 启动容器：
 
 ```bash
-docker-compose -f  /hyperf-3.x/docker/docker-compose.yaml -p hyperf3 up -d --build
+docker-compose -f ./hyperf-3.x/docker/docker-compose.yaml -p hyperf3 up -d --build
 ```
 
 访问项目：

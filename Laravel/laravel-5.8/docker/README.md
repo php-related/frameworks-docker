@@ -44,7 +44,7 @@ Docker 部署支持两种模式：
 启动容器：
 
 ```bash
-docker-compose -f  /laravel-5.8/docker/docker-compose.volume.yaml -p laravel5_8-volume up -d --build
+docker-compose -f ./laravel-5.8/docker/docker-compose.volume.yaml -p laravel5_8-volume up -d --build
 ```
 
 访问项目：
@@ -64,7 +64,7 @@ http://localhost:8059
 启动容器：
 
 ```bash
-docker-compose -f  /laravel-5.8/docker/docker-compose.yaml -p laravel5_8 up -d --build
+docker-compose -f ./laravel-5.8/docker/docker-compose.yaml -p laravel5_8 up -d --build
 ```
 
 访问项目：

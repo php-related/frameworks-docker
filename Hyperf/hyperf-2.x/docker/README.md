@@ -43,7 +43,7 @@ Docker 部署支持两种模式：
 启动命令：
 
 ```bash
-docker-compose -f  /hyperf-2.x/docker/docker-compose.volume.yaml -p hyperf2-volume up -d --build
+docker-compose -f ./hyperf-2.x/docker/docker-compose.volume.yaml -p hyperf2-volume up -d --build
 ```
 
 访问项目：
@@ -63,7 +63,7 @@ http://localhost:8503
 启动容器：
 
 ```bash
-docker-compose -f  /hyperf-2.x/docker/docker-compose.yaml -p hyperf2 up -d --build
+docker-compose -f ./hyperf-2.x/docker/docker-compose.yaml -p hyperf2 up -d --build
 ```
 
 访问项目：

@@ -44,6 +44,9 @@ WORKDIR /app
 # RUN composer install --no-dev --no-scripts
 
 COPY . /app
+
+RUN cp .env.example .env
+
 RUN composer install --no-dev -o && php bin/hyperf.php
 
 EXPOSE 9501

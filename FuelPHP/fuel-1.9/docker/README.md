@@ -44,7 +44,7 @@ Docker 部署支持两种模式：
 启动命令：
 
 ```bash
-docker-compose -f  /fuel-1.9/docker/docker-compose.volume.yaml -p fuel1_9-volume up -d --build
+docker-compose -f ./fuel-1.9/docker/docker-compose.volume.yaml -p fuel1_9-volume up -d --build
 ```
 
 访问项目：
@@ -64,7 +64,7 @@ http://localhost:8630
 启动命令：
 
 ```bash
-docker-compose -f  /fuel-1.9/docker/docker-compose.yaml -p fuel1_9 up -d --build
+docker-compose -f ./fuel-1.9/docker/docker-compose.yaml -p fuel1_9 up -d --build
 ```
 
 访问项目：

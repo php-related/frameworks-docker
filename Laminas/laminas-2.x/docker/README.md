@@ -44,7 +44,7 @@ Docker 部署支持两种模式：
 启动容器：
 
 ```bash
-docker-compose -f  /laminas-2.x/docker/docker-compose.volume.yaml -p laminas2-volume up -d --build
+docker-compose -f ./laminas-2.x/docker/docker-compose.volume.yaml -p laminas2-volume up -d --build
 ```
 
 访问项目：
@@ -64,7 +64,7 @@ http://localhost:8750
 启动容器：
 
 ```bash
-docker-compose -f  /laminas-2.x/docker/docker-compose.yaml -p laminas2 up -d --build
+docker-compose -f ./laminas-2.x/docker/docker-compose.yaml -p laminas2 up -d --build
 ```
 
 访问项目：

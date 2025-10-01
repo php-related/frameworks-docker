@@ -44,7 +44,7 @@
 | Yii        | 1.1, 2.0                        | 已完成             | [官网](https://www.yiiframework.com/) / [GitHub](https://github.com/yiisoft-contrib/yiiframework.com) |
 | CakePHP    | 3.x,4.x, 5.x                          | 已完成               | [官网](https://cakephp.org/) / [GitHub](https://github.com/cakephp/cakephp)                    |
 | CodeIgniter| 2.x, 3.x, 4.x                   | 已完成             | [官网](https://codeigniter.com/) / [GitHub](https://github.com/codeigniter4/CodeIgniter4)     |
-| Hyperf     | 2.x,3.x                          | 进行中                 | [官网](https://www.hyperf.io/) / [GitHub](https://github.com/hyperf/hyperf)                   |
+| Hyperf     | 1.x,2.x,3.x                          | 已完成                 | [官网](https://www.hyperf.io/) / [GitHub](https://github.com/hyperf/hyperf)                   |
 | Symfony    | 6.x, 7.x                          | 进行中                 | [官网](https://symfony.com/) / [GitHub](https://github.com/symfony/symfony)                   |
 |Slim    | 4.x                          | 进行中                 | [官网](https://www.slimframework.com/) / [GitHub](https://github.com/slimphp/Slim)                   |
 |Fat-Free   | 3.x                          | 进行中                 | [官网](https://www.fatfreeframework.com/) / [GitHub](https://github.com/bcosca/fatfree)                   |
