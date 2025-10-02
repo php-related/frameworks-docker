@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  symfony5-app:
+    container_name: symfony5
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: symfony5
+    ports:
+      - "8407:80"
+    environment:
+      - APP_ENV=production
+      - DEFAULT_URI=http://localhost
+    restart: unless-stopped

@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  symfony5-app:
+    container_name: symfony5-volume
+    build:
+      context: .
+      dockerfile: Dockerfile.volume
+    image: symfony5:volume
+    ports:
+      - "8406:80"
+    volumes:
+      - ../:/app           # 挂载本地 app 代码，方便调试
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./supervisord.conf:/etc/supervisord.conf:ro
+      - ./www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai     # 设置时区，可根据需要修改
+    tty: true
+    command: >
+      /bin/sh -c "
+      if [ ! -d /app/vendor ]; then composer install --no-dev --optimize-autoloader; fi && \
+      /usr/bin/supervisord -c /etc/supervisord.conf
+      "
