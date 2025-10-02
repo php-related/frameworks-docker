@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  symfony3-app:
+    container_name: symfony3
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: symfony3
+    ports:
+      - "8413:80"
+    environment:
+      - APP_ENV=production
+      - DEFAULT_URI=http://localhost
+    restart: unless-stopped
