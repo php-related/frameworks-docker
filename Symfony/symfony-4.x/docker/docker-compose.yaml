@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  symfony4-app:
+    container_name: symfony4
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: symfony4
+    ports:
+      - "8410:80"
+    environment:
+      - APP_ENV=production
+      - DEFAULT_URI=http://localhost
+    restart: unless-stopped
