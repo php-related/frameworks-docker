@@ -331,11 +331,19 @@ Hyperf/hyperf-3.x/runtime/
 ############################################################################
 
 ###########################################################################
+# Slim-1.x
+################################Slim-1.x#################################
+# composer 依赖
+Slim/slim-1.x/vendor/
+Slim/slim-1.x/docs/
+Slim/slim-1.x/tests/
+############################################################################
+
+###########################################################################
 # Slim-2.x
 ################################Slim-2.x#################################
 # composer 依赖
 Slim/slim-2.x/vendor/
-Slim/slim-2.x/test/
 Slim/slim-2.x/logs/
 Slim/slim-2.x/tests/
 Slim/slim-2.x/templates/cache/*
@@ -346,7 +354,6 @@ Slim/slim-2.x/templates/cache/*
 ################################Slim-3.x#################################
 # composer 依赖
 Slim/slim-3.x/vendor/
-Slim/slim-3.x/test/
 Slim/slim-3.x/logs/
 Slim/slim-3.x/tests/
 Slim/slim-3.x/var/
@@ -357,7 +364,6 @@ Slim/slim-3.x/var/
 ################################Slim-4.x#################################
 # composer 依赖
 Slim/slim-4.x/vendor/
-Slim/slim-4.x/test/
 Slim/slim-4.x/runtime/
 Slim/slim-4.x/logs/
 Slim/slim-4.x/tests/
