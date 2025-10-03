@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  slim3-app:
+    container_name: slim3
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: slim3
+    ports:
+      - "8681:80"
+    environment:
+      - APP_ENV=production
+    restart: unless-stopped
