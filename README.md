@@ -14,25 +14,25 @@
 
 ## 框架与版本支持情况
 
-| 框架名称    | 已收录版本                         | Docker部署支持情况 | 官网/GitHub地址                                                                                 |
-| ----------- | -------------------------------- | ------------------ | ---------------------------------------------------------------------------------------------- |
-| ThinkPHP    | 3.2, 5.0, 5.1, 6.x, 8.0          | 已完成             | [官网](https://www.thinkphp.cn/) / [GitHub](https://github.com/top-think/think)               |
-| Webman     | 1.6, 2.1                         | 已完成             | [官网](https://www.workerman.net/webman/) / [GitHub](https://github.com/walkor/webman)        |
-| Laravel    | 4.2, 5.8, 6.x, 7.x, 8.x, 9.x, 10.x, 11.x, 12.x | 已完成           | [官网](https://laravel.com/) / [GitHub](https://github.com/laravel/laravel)                    |
-| Yii        | 1.1, 2.0                        | 已完成             | [官网](https://www.yiiframework.com/) / [GitHub](https://github.com/yiisoft-contrib/yiiframework.com) |
-| CakePHP    | 3.x, 4.x, 5.x                          | 已完成               | [官网](https://cakephp.org/) / [GitHub](https://github.com/cakephp/cakephp)                    |
-| CodeIgniter| 2.x, 3.x, 4.x                   | 已完成             | [官网](https://codeigniter.com/) / [GitHub](https://github.com/codeigniter4/CodeIgniter4)     |
-| Hyperf     | 1.x, 2.x, 3.x                          | 已完成                 | [官网](https://www.hyperf.io/) / [GitHub](https://github.com/hyperf/hyperf)                   |
-| Symfony    | 3.x, 4.x, 5.x, 6.x, 7.x                          | 已完成                 | [官网](https://symfony.com/) / [GitHub](https://github.com/symfony/symfony)                   |
-|Slim    |1.x, 2.x, 3.x, 4.x                          | 已完成                 | [官网](https://www.slimframework.com/) / [GitHub](https://github.com/slimphp/Slim)                   |
-|Fat-Free   | 3.x                          | 进行中                 | [官网](https://www.fatfreeframework.com/) / [GitHub](https://github.com/bcosca/fatfree)                   |
-|Flight   | 2.x, 3.x                          | 进行中                 | [官网](https://docs.flightphp.com/) / [GitHub](https://github.com/flightphp/core)                   |
-|Fuel   | 1.9                          | 进行中                 | [官网](https://fuelphp.com/) / [GitHub](https://github.com/fuel/fuelphp.com)                   |
-|Nette   | 3.x                          | 已完成                 | [官网](https://nette.org/) / [GitHub](https://github.com/nette/nette)                   |
-|PHPixie   | 3.x                          | 已完成                 | [官网](https://phpixie.com/) / [GitHub](https://github.com/phpixie/project)                   |
-|Aura   | 2.x                          | 已完成                 | [官网](https://auraphp.com/) / [GitHub](https://github.com/auraphp/auraphp.github.io)                   |
-|Lumen    | 10.x                          | 已完成                 | [官网](https://lumen.laravel.com/) / [GitHub](https://github.com/laravel/lumen)                   |
-|Laminas(Zend Framework)    | 2.x          | 已完成     | [官网](https://getlaminas.org/)  / [GitHub](https://github.com/laminas/laminas-mvc-skeleton)                   |
+| 框架名称                | 已收录版本                                     | Docker部署支持情况 | 官网/GitHub地址                                                                                 |
+| ----------------------- | ---------------------------------------------- | ------------------ | ----------------------------------------------------------------------------------------------- |
+| ThinkPHP                | 3.2, 5.0, 5.1, 6.x, 8.0                        | 已完成             | [官网](https://www.thinkphp.cn/) / [GitHub](https://github.com/top-think/think)                       |
+| Webman                  | 1.6, 2.1                                       | 已完成             | [官网](https://www.workerman.net/webman/) / [GitHub](https://github.com/walkor/webman)                |
+| Laravel                 | 4.2, 5.8, 6.x, 7.x, 8.x, 9.x, 10.x, 11.x, 12.x | 已完成             | [官网](https://laravel.com/) / [GitHub](https://github.com/laravel/laravel)                           |
+| Yii                     | 1.1, 2.0                                       | 已完成             | [官网](https://www.yiiframework.com/) / [GitHub](https://github.com/yiisoft-contrib/yiiframework.com) |
+| CakePHP                 | 3.x, 4.x, 5.x                                  | 已完成             | [官网](https://cakephp.org/) / [GitHub](https://github.com/cakephp/cakephp)                           |
+| CodeIgniter             | 2.x, 3.x, 4.x                                  | 已完成             | [官网](https://codeigniter.com/) / [GitHub](https://github.com/codeigniter4/CodeIgniter4)             |
+| Hyperf                  | 1.x, 2.x, 3.x                                  | 已完成             | [官网](https://www.hyperf.io/) / [GitHub](https://github.com/hyperf/hyperf)                           |
+| Symfony                 | 3.x, 4.x, 5.x, 6.x, 7.x                        | 已完成             | [官网](https://symfony.com/) / [GitHub](https://github.com/symfony/symfony)                           |
+| Slim                    | 1.x, 2.x, 3.x, 4.x                             | 已完成             | [官网](https://www.slimframework.com/) / [GitHub](https://github.com/slimphp/Slim)                    |
+| Fat-Free                | 3.x                                            | 已完成             | [官网](https://www.fatfreeframework.com/) / [GitHub](https://github.com/bcosca/fatfree)               |
+| Flight                  |  1.x, 2.x, 3.x                                       | 已完成             | [官网](https://docs.flightphp.com/) / [GitHub](https://github.com/flightphp/core)                     |
+| Fuel                    | 1.9                                            | 进行中             | [官网](https://fuelphp.com/) / [GitHub](https://github.com/fuel/fuelphp.com)                          |
+| Nette                   | 3.x                                            | 已完成             | [官网](https://nette.org/) / [GitHub](https://github.com/nette/nette)                                 |
+| PHPixie                 | 3.x                                            | 已完成             | [官网](https://phpixie.com/) / [GitHub](https://github.com/phpixie/project)                           |
+| Aura                    | 2.x                                            | 已完成             | [官网](https://auraphp.com/) / [GitHub](https://github.com/auraphp/auraphp.github.io)                 |
+| Lumen                   | 10.x                                           | 已完成             | [官网](https://lumen.laravel.com/) / [GitHub](https://github.com/laravel/lumen)                       |
+| Laminas(Zend Framework) | 2.x                                            | 已完成             | [官网](https://getlaminas.org/)  / [GitHub](https://github.com/laminas/laminas-mvc-skeleton)          |
 
 - Laminas说明：2019-04-18 Zend Framework 进入 Linux 基金会，重命名为 Laminas，更多详情请查看 [Zend Framework官网](https://framework.zend.com/)。
 
@@ -67,7 +67,7 @@ git clone https://github.com/php-related/frameworks-docker.git
 ```
 
 2. 选择框架与版本
-复制所需框架版本完整文件夹，包含源码和相关配置，例如：
+   复制所需框架版本完整文件夹，包含源码和相关配置，例如：
 
 ```bash
 cp -r frameworks-docker/Laravel/laravel-12.x /your/workspace/
@@ -135,7 +135,7 @@ docker build -f ./laravel-12.x/docker/Dockerfile -t laravel12:run /laravel-12.x/
 docker run -d --name laravel12-run -p 8083:80 laravel12:run
 ```
 
-或者使用镜像模式产生镜像：（`laravel12:latest`），具体请查看`docker-compose.yaml`。
+或者使用镜像模式产生镜像：（`laravel12:latest`），具体请查看 `docker-compose.yaml`。
 
 ```bash
 docker run -d --name laravel12-latest -p 8083:80 laravel12:latest
@@ -245,24 +245,24 @@ docker-compose -f docker-compose.yaml up -d --remove-orphans
 
 ## 四、示例对比
 
-| 操作 | 单容器命令示例 | 多容器命令示例|
-|------------------------------|--------------------|--------------------------|
-| 构建镜像 | docker build -f Dockerfile -t laravel12 . | docker-compose -f docker-compose.yaml build|
-| 启动服务 | docker run -d -p 8082:80 laravel12 | docker-compose -f docker-compose.yaml up -d|
-| 停止服务 | docker stop laravel12-run | docker-compose -f docker-compose.yaml down|
-| 查看日志 | docker logs -f laravel12-run | docker-compose -f docker-compose.yaml logs -f|
-| 进入终端 | docker exec -it laravel12-run sh | docker exec -it <服务名>  sh|
+| 操作     | 单容器命令示例                            | 多容器命令示例                                |
+| -------- | ----------------------------------------- | --------------------------------------------- |
+| 构建镜像 | docker build -f Dockerfile -t laravel12 . | docker-compose -f docker-compose.yaml build   |
+| 启动服务 | docker run -d -p 8082:80 laravel12        | docker-compose -f docker-compose.yaml up -d   |
+| 停止服务 | docker stop laravel12-run                 | docker-compose -f docker-compose.yaml down    |
+| 查看日志 | docker logs -f laravel12-run              | docker-compose -f docker-compose.yaml logs -f |
+| 进入终端 | docker exec -it laravel12-run sh          | docker exec -it <服务名>  sh                  |
 
 请根据实际部署方式选择对应的命令使用。
 
 ## 总结
 
-| 方式                         | 适用场景           | 特点                     |
-|------------------------------|--------------------|--------------------------|
-|传统 nginx+php-fpm |传统服务器或自定义环境|灵活可控，需环境手动配置|
-| docker-compose.yaml           | 生产/标准开发      | 镜像包含代码，启动即用   |
-| docker-compose.volume.yaml    | 本地开发调试       | 宿主机代码同步，无需重建 |
-| docker run（整体打包）        | 部署/测试/演示      | 一条命令，快速启动       |
+| 方式                       | 适用场景               | 特点                     |
+| -------------------------- | ---------------------- | ------------------------ |
+| 传统 nginx+php-fpm         | 传统服务器或自定义环境 | 灵活可控，需环境手动配置 |
+| docker-compose.yaml        | 生产/标准开发          | 镜像包含代码，启动即用   |
+| docker-compose.volume.yaml | 本地开发调试           | 宿主机代码同步，无需重建 |
+| docker run（整体打包）     | 部署/测试/演示         | 一条命令，快速启动       |
 
 ---
 

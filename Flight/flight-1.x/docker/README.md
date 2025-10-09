@@ -1,6 +1,6 @@
-# Flight 2.x Framework 项目使用说明
+# Flight 1.x Framework 项目使用说明
 
-本项目基于 **PHP Flight 2.x** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
+本项目基于 **PHP Flight 1.x** 框架，本项目提供完整源码及两种主流的部署方式，适合不同场景下的开发与部署需求。
 
 - 传统部署（nginx + php-fpm）
 - Docker 部署（支持开发挂载卷和整体打包两种模式）
@@ -9,7 +9,7 @@
 
 ```text
 Flight/
-  └── flight-2.x/
+  └── flight-1.x/
       ├── ../                               # 源代码
       ├── nginx.conf                        # nginx 配置
       └── docker/                           # docker配置
@@ -44,16 +44,16 @@ Docker 部署支持两种模式：
 启动命令：
 
 ```bash
-docker-compose -f ./flight-2.x/docker/docker-compose.volume.yaml -p flight2-volume up -d --build
+docker-compose -f ./flight-1.x/docker/docker-compose.volume.yaml -p flight1-volume up -d --build
 ```
 
 访问项目：
 
 ```
-http://localhost:8683
+http://localhost:8694
 ```
 
-假设端口映射为 `8683:80`，具体请查看`docker-compose.volume.yaml`
+假设端口映射为 `8694:80`，具体请查看`docker-compose.volume.yaml`
 
 ### 2. 镜像模式
 
@@ -64,44 +64,44 @@ http://localhost:8683
 启动命令：
 
 ```bash
-docker-compose -f ./flight-2.x/docker/docker-compose.yaml -p flight2 up -d --build
+docker-compose -f ./flight-1.x/docker/docker-compose.yaml -p flight1 up -d --build
 ```
 
 访问项目：
 
 ```
-http://localhost:8684
+http://localhost:8695
 ```
 
-假设端口映射为 `8684:80`，具体请查看`docker-compose.yaml`
+假设端口映射为 `8695:80`，具体请查看`docker-compose.yaml`
 
 #### 2.2 直接使用 docker run 启动
 
 构建镜像：
 
 ```bash
-docker build -f  /flight-2.x/docker/Dockerfile -t flight2:run /flight-2.x/docker
+docker build -f  /flight-1.x/docker/Dockerfile -t flight1:run /flight-1.x/docker
 ```
 
 启动容器：
 
 ```bash
-docker run -d --name flight2-run -p 8685:80 flight2:run
+docker run -d --name flight1-run -p 8695:80 flight1:run
 ```
 
-或者使用镜像模式产生镜像：（`flight2:latest`），具体请查看`docker-compose.yaml`。
+或者使用镜像模式产生镜像：（`flight1:latest`），具体请查看`docker-compose.yaml`。
 
 ```bash
-docker run -d --name flight2-latest -p 8685:80 flight2:latest
+docker run -d --name flight1-latest -p 8695:80 flight1:latest
 ```
 
 访问项目：
 
 ```
-http://localhost:8685
+http://localhost:8695
 ```
 
-假设端口映射为 `8685:80`，这里是根据docker run启动时指定的端口
+假设端口映射为 `8695:80`，这里是根据docker run启动时指定的端口
 
 ## 二、源码与传统部署（nginx + php-fpm）
 
@@ -109,23 +109,23 @@ http://localhost:8685
 
 ### 1. 环境准备
 
-- PHP=8.2，包含 php-fpm 服务
+- PHP=8.0，包含 php-fpm 服务
 - nginx 服务器
 - MySQL 或其他数据库服务
-- 项目源码放置目录，例如 `/var/www/flight-2.x`
+- 项目源码放置目录，例如 `/var/www/flight-1.x`
 
 ### 2. nginx 配置
 
-项目提供 `nginx.conf` 示例配置(请参考flight-2.x根目录下nginx.conf)
+项目提供 `nginx.conf` 示例配置(请参考flight-1.x根目录下nginx.conf)
 
 ### 3. 权限设置
 
 确保 web 用户有读写权限：
 
 ```bash
-sudo chown -R www-data:www-data /var/www/flight-2.x
-sudo find /var/www/flight-2.x -type f -exec chmod 644 {} \;
-sudo find /var/www/flight-2.x -type d -exec chmod 755 {} \;
+sudo chown -R www-data:www-data /var/www/flight-1.x
+sudo find /var/www/flight-1.x -type f -exec chmod 644 {} \;
+sudo find /var/www/flight-1.x -type d -exec chmod 755 {} \;
 ```
 
 ### 4. 重启服务并访问
@@ -133,7 +133,7 @@ sudo find /var/www/flight-2.x -type d -exec chmod 755 {} \;
 重启 php-fpm 与 nginx：
 
 ```bash
-sudo systemctl restart php8.2-fpm
+sudo systemctl restart php8.0-fpm
 sudo systemctl restart nginx
 ```
 
